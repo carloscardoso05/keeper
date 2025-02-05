@@ -6,7 +6,7 @@ class LocalStorage {
   AsyncResult<String> set(String key, String value) async {
     try {
       final shared = await SharedPreferences.getInstance();
-      shared.setString(key, value);
+      await shared.setString(key, value);
       return Success(value);
     } catch (e, s) {
       return Failure(LocalStorageException(e.toString(), s));
