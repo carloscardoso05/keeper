@@ -3,6 +3,8 @@ targets:
   sources:
     include:
       - lib/domain/**
+      - lib/data/services/drift/**
+      - lib/utils/data/services/json_converter.dart
     exclude:
       - lib/**.freezed.dart
       - lib/**.g.dart
