@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:keeper/main.dart';
 import 'package:keeper/ui/users/viewmodels/users_cubit.dart';
 
-class UsersLayout extends StatefulWidget {
-  const UsersLayout({super.key});
-
-  @override
-  State<UsersLayout> createState() => _UsersLayoutState();
-}
-
-class _UsersLayoutState extends State<UsersLayout> {
-  final UsersCubit cubit = getIt.get();
+class UsersLayout extends StatelessWidget {
+  const UsersLayout({super.key, required this.cubit});
+  final UsersCubit cubit;
 
   @override
   Widget build(BuildContext context) {
