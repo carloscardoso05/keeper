@@ -5,7 +5,6 @@ targets:
       - lib/domain/**
       - lib/data/services/drift/**
       - lib/utils/data/services/json_converter.dart
-      - lib/ui/**/viewmodels/**
     exclude:
       - lib/**.freezed.dart
       - lib/**.g.dart
