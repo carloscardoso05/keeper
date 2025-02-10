@@ -12,10 +12,6 @@ _$ItemImpl _$$ItemImplFromJson(Map<String, dynamic> json) => _$ItemImpl(
       name: json['name'] as String,
       description: json['description'] as String? ?? '',
       holderId: (json['holderId'] as num?)?.toInt(),
-      properties: (json['properties'] as Map<String, dynamic>?)?.map(
-            (k, e) => MapEntry(k, e as String),
-          ) ??
-          const {},
     );
 
 Map<String, dynamic> _$$ItemImplToJson(_$ItemImpl instance) =>
@@ -25,5 +21,4 @@ Map<String, dynamic> _$$ItemImplToJson(_$ItemImpl instance) =>
       'name': instance.name,
       'description': instance.description,
       'holderId': instance.holderId,
-      'properties': instance.properties,
     };

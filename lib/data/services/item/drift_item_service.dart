@@ -53,7 +53,6 @@ class DriftItemService {
           name: value.name,
           description: Value(value.description),
           holderId: Value(value.holderId),
-          properties: Value(value.properties),
         ),
         mode: InsertMode.replace,
       );
@@ -70,7 +69,6 @@ class DriftItemService {
       name: model.name,
       description: model.description,
       holderId: model.holderId,
-      properties: model.properties,
     );
   }
 
@@ -81,7 +79,6 @@ class DriftItemService {
       name: data.name,
       description: data.description,
       holderId: data.holderId,
-      properties: data.properties,
     );
   }
 }

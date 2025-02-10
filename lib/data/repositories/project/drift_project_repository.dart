@@ -1,5 +1,6 @@
 import 'package:keeper/data/repositories/project/project_repository.dart';
 import 'package:keeper/data/services/project/drift_project_service.dart';
+import 'package:keeper/domain/dtos/project_dto.dart';
 import 'package:keeper/domain/entities/project.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -24,7 +25,35 @@ class DriftProjectRepository implements ProjectRepository {
   }
 
   @override
-  AsyncResult<Project> save(Project value, [int? id]) {
-    return _service.save(value, id);
+  AsyncResult<Project> save(ProjectDto value, [int? id]) {
+    return _service.save(toModel(value), id);
+  }
+
+  @override
+  ProjectDto toDto(Project model) {
+    return ProjectDto(
+      id: model.id,
+      name: model.name,
+      address: model.address,
+      startDate: model.startDate,
+      endDate: model.endDate,
+      employeesIds: model.employeesIds,
+      responsibleId: model.responsibleId,
+      status: model.status,
+    );
+  }
+
+  @override
+  Project toModel(ProjectDto dto) {
+    return Project(
+      id: dto.id ?? 0,
+      name: dto.name,
+      address: dto.address,
+      startDate: dto.startDate,
+      endDate: dto.endDate,
+      employeesIds: dto.employeesIds,
+      responsibleId: dto.responsibleId,
+      status: dto.status,
+    );
   }
 }

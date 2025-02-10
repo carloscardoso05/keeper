@@ -11,7 +11,6 @@ class Item with _$Item {
     required String name,
     @Default('') String description,
     int? holderId,
-    @Default({}) Map<String, String> properties,
   }) = _Item;
 
   factory Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);

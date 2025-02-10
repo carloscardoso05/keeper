@@ -25,7 +25,6 @@ mixin _$Item {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   int? get holderId => throw _privateConstructorUsedError;
-  Map<String, String> get properties => throw _privateConstructorUsedError;
 
   /// Serializes this Item to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,8 +45,7 @@ abstract class $ItemCopyWith<$Res> {
       String assetCode,
       String name,
       String description,
-      int? holderId,
-      Map<String, String> properties});
+      int? holderId});
 }
 
 /// @nodoc
@@ -70,7 +68,6 @@ class _$ItemCopyWithImpl<$Res, $Val extends Item>
     Object? name = null,
     Object? description = null,
     Object? holderId = freezed,
-    Object? properties = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -93,10 +90,6 @@ class _$ItemCopyWithImpl<$Res, $Val extends Item>
           ? _value.holderId
           : holderId // ignore: cast_nullable_to_non_nullable
               as int?,
-      properties: null == properties
-          ? _value.properties
-          : properties // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
     ) as $Val);
   }
 }
@@ -113,8 +106,7 @@ abstract class _$$ItemImplCopyWith<$Res> implements $ItemCopyWith<$Res> {
       String assetCode,
       String name,
       String description,
-      int? holderId,
-      Map<String, String> properties});
+      int? holderId});
 }
 
 /// @nodoc
@@ -134,7 +126,6 @@ class __$$ItemImplCopyWithImpl<$Res>
     Object? name = null,
     Object? description = null,
     Object? holderId = freezed,
-    Object? properties = null,
   }) {
     return _then(_$ItemImpl(
       id: null == id
@@ -157,10 +148,6 @@ class __$$ItemImplCopyWithImpl<$Res>
           ? _value.holderId
           : holderId // ignore: cast_nullable_to_non_nullable
               as int?,
-      properties: null == properties
-          ? _value._properties
-          : properties // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
     ));
   }
 }
@@ -173,9 +160,7 @@ class _$ItemImpl implements _Item {
       required this.assetCode,
       required this.name,
       this.description = '',
-      this.holderId,
-      final Map<String, String> properties = const {}})
-      : _properties = properties;
+      this.holderId});
 
   factory _$ItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$ItemImplFromJson(json);
@@ -191,18 +176,10 @@ class _$ItemImpl implements _Item {
   final String description;
   @override
   final int? holderId;
-  final Map<String, String> _properties;
-  @override
-  @JsonKey()
-  Map<String, String> get properties {
-    if (_properties is EqualUnmodifiableMapView) return _properties;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_properties);
-  }
 
   @override
   String toString() {
-    return 'Item(id: $id, assetCode: $assetCode, name: $name, description: $description, holderId: $holderId, properties: $properties)';
+    return 'Item(id: $id, assetCode: $assetCode, name: $name, description: $description, holderId: $holderId)';
   }
 
   @override
@@ -217,15 +194,13 @@ class _$ItemImpl implements _Item {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.holderId, holderId) ||
-                other.holderId == holderId) &&
-            const DeepCollectionEquality()
-                .equals(other._properties, _properties));
+                other.holderId == holderId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, assetCode, name, description,
-      holderId, const DeepCollectionEquality().hash(_properties));
+  int get hashCode =>
+      Object.hash(runtimeType, id, assetCode, name, description, holderId);
 
   /// Create a copy of Item
   /// with the given fields replaced by the non-null parameter values.
@@ -249,8 +224,7 @@ abstract class _Item implements Item {
       required final String assetCode,
       required final String name,
       final String description,
-      final int? holderId,
-      final Map<String, String> properties}) = _$ItemImpl;
+      final int? holderId}) = _$ItemImpl;
 
   factory _Item.fromJson(Map<String, dynamic> json) = _$ItemImpl.fromJson;
 
@@ -264,8 +238,6 @@ abstract class _Item implements Item {
   String get description;
   @override
   int? get holderId;
-  @override
-  Map<String, String> get properties;
 
   /// Create a copy of Item
   /// with the given fields replaced by the non-null parameter values.

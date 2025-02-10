@@ -1,7 +1,7 @@
-import 'package:keeper/domain/entities/user.dart';
+import 'package:keeper/domain/dtos/user_dto.dart';
 import 'package:lucid_validation/lucid_validation.dart';
 
-class UserValidator extends LucidValidator<User> {
+class UserValidator extends LucidValidator<UserDto> {
   UserValidator() {
     ruleFor((user) => user.name.trim(), key: 'name')
         .must(

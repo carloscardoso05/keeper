@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 
-class DeleteUserModal extends StatelessWidget {
-  const DeleteUserModal({super.key});
+class DeleteModal extends StatelessWidget {
+  const DeleteModal({
+    super.key,
+    required this.title,
+    this.content,
+  });
+  final String title;
+  final String? content;
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Deletar usuário'),
-      content: Text('Tem certeza que deseja deletar este usuário?'),
+      title: Text(title),
+      content: content != null ? Text(content!) : null,
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(false),

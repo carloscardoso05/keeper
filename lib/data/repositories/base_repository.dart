@@ -1,8 +1,11 @@
 import 'package:result_dart/result_dart.dart';
 
-abstract interface class BaseRepository<T extends Object> {
-  AsyncResult<T> get(int id);
-  AsyncResult<Map<int, T>> getAll();
-  AsyncResult<T> save(T value, [int? id]);
-  AsyncResult<T> delete(int id);
+abstract interface class BaseRepository<Model extends Object,
+    Dto extends Object> {
+  AsyncResult<Model> get(int id);
+  AsyncResult<Map<int, Model>> getAll();
+  AsyncResult<Model> save(Dto value, [int? id]);
+  AsyncResult<Model> delete(int id);
+  Model toModel(Dto dto);
+  Dto toDto(Model model);
 }

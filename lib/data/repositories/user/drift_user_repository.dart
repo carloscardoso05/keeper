@@ -1,5 +1,6 @@
 import 'package:keeper/data/repositories/user/user_repository.dart';
 import 'package:keeper/data/services/user/drift_user_service.dart';
+import 'package:keeper/domain/dtos/user_dto.dart';
 
 import 'package:keeper/domain/entities/user.dart';
 import 'package:result_dart/result_dart.dart';
@@ -25,8 +26,8 @@ class DriftUserRepository implements UserRepository {
   }
 
   @override
-  AsyncResult<User> save(User value, [int? id]) {
-    return _service.save(value, id);
+  AsyncResult<User> save(UserDto value, [int? id]) {
+    return _service.save(toModel(value), id);
   }
 
   @override
@@ -34,6 +35,26 @@ class DriftUserRepository implements UserRepository {
     return getAll().map(
       (users) =>
           users..removeWhere((id, user) => user.type != UserType.employee),
+    );
+  }
+
+  @override
+  UserDto toDto(User model) {
+    return UserDto(
+      id: model.id,
+      itemsIds: model.itemsIds,
+      name: model.name,
+      type: model.type,
+    );
+  }
+
+  @override
+  User toModel(UserDto dto) {
+    return User(
+      id: dto.id ?? 0,
+      itemsIds: dto.itemsIds,
+      name: dto.name,
+      type: dto.type,
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:keeper/data/repositories/user/user_repository.dart';
+import 'package:keeper/domain/dtos/user_dto.dart';
 import 'package:keeper/domain/entities/user.dart';
 import 'package:keeper/main.dart';
 import 'package:logger/logger.dart';
@@ -23,9 +24,9 @@ class UsersCubit extends Cubit<UsersState> {
     emit(UsersState.loaded(await _userRepository.getAll()));
   }
 
-  void saveUser(User user, [int? id]) async {
+  void saveUser(UserDto user, [int? id]) async {
     if (state is! Loaded) {
-      log.d('Cannot save user when state is not loaded. Current state: $state');
+      log.w('Cannot save user when state is not loaded. Current state: $state');
       return;
     }
     var result = (state as Loaded).result;
@@ -40,7 +41,7 @@ class UsersCubit extends Cubit<UsersState> {
 
   void deleteUser(int id) async {
     if (state is! Loaded) {
-      log.w('Cannot save user when state is not loaded. Current state: $state');
+      log.w('Cannot delete user when state is not loaded. Current state: $state');
       return;
     }
     var result = (state as Loaded).result;
