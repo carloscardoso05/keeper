@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:keeper/domain/entities/user.dart';
-import 'package:keeper/ui/users/add_user_modal.dart';
+import 'package:keeper/ui/users/widgets/add_user_modal.dart';
 import 'package:keeper/ui/users/viewmodels/users/users_cubit.dart';
 import 'package:keeper/ui/users/widgets/delete_user_modal.dart';
 import 'package:keeper/utils/domain/entities/user_extension.dart';
 
-class UsersLayout extends StatefulWidget {
-  const UsersLayout({
+class UsersPage extends StatefulWidget {
+  const UsersPage({
     super.key,
     required this.cubit,
   });
   final UsersCubit cubit;
 
   @override
-  State<UsersLayout> createState() => _UsersLayoutState();
+  State<UsersPage> createState() => _UsersPageState();
 }
 
-class _UsersLayoutState extends State<UsersLayout> {
+class _UsersPageState extends State<UsersPage> {
   String searchValue = '';
   Set<UserType> selectedTypes = {for (final type in UserType.values) type};
   List<User> filterUsers(List<User> users) {

@@ -12,7 +12,6 @@ part 'users_state.dart';
 class UsersCubit extends Cubit<UsersState> {
   UsersCubit() : super(const UsersState.initial()) {
     loadUsers();
-    stream.listen((state) => log.w('State: $state'));
   }
 
   static final Logger log = getIt.get();
@@ -26,7 +25,7 @@ class UsersCubit extends Cubit<UsersState> {
 
   void saveUser(User user, [int? id]) async {
     if (state is! Loaded) {
-      log.w('Cannot save user when state is not loaded. Current state: $state');
+      log.d('Cannot save user when state is not loaded. Current state: $state');
       return;
     }
     var result = (state as Loaded).result;
