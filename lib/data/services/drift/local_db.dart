@@ -7,8 +7,8 @@ import 'package:keeper/utils/data/services/json_converter.dart';
 import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
 
-part 'local_db.g.dart';
 part 'item_table.dart';
+part 'local_db.g.dart';
 part 'project_table.dart';
 part 'user_table.dart';
 
@@ -17,7 +17,7 @@ class LocalDb extends _$LocalDb {
   LocalDb() : super(_openConnection());
 
   @override
-  final schemaVersion = 1;
+  final schemaVersion = 2;
 
   static QueryExecutor _openConnection() {
     getApplicationSupportDirectory().then(
@@ -25,10 +25,29 @@ class LocalDb extends _$LocalDb {
           .get<Logger>()
           .d('Trying to open database connection on $directory'),
     );
-    return driftDatabase(
+    final db = driftDatabase(
       name: 'my_database',
       native: const DriftNativeOptions(
         databaseDirectory: getApplicationSupportDirectory,
+      ),
+    );
+    getApplicationSupportDirectory().then(
+      (directory) =>
+          getIt.get<Logger>().d('Database connection opened on $directory'),
+    );
+    return db;
+  }
+
+  @override
+  MigrationStrategy get migration {
+    return MigrationStrategy(
+      onUpgrade: stepByStep(
+        from1To2: (m, schema) async {
+          await m.addColumn(schema.users, schema.users.birthdate);
+        },
+        from2To3: (m, schema) async {
+          await m.deleteTable('users');
+        },
       ),
     );
   }

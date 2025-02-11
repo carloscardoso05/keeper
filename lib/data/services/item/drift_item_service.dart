@@ -1,6 +1,7 @@
 import 'package:drift/drift.dart';
 import 'package:keeper/data/services/drift/local_db.dart';
 import 'package:keeper/domain/entities/item.dart';
+import 'package:keeper/main.dart';
 import 'package:result_dart/result_dart.dart';
 
 class DriftItemService {
@@ -39,7 +40,8 @@ class DriftItemService {
       return (await manager.get().then(
               (items) => Map<int, Item>.fromEntries(items.map(_entryFromDb))))
           .toSuccess();
-    } on Exception catch (e) {
+    } on Exception catch (e, s) {
+      logger.e(s);
       return Failure(e);
     }
   }

@@ -12,6 +12,15 @@ part 'items_state.dart';
 class ItemsCubit extends Cubit<ItemsState> {
   ItemsCubit() : super(const Initial()) {
     loadItems();
+    stream.listen(
+      (newState) {
+        if (newState is Loaded) {
+          newState.result.onFailure(
+            (failure) => log.e(failure),
+          );
+        }
+      },
+    );
   }
 
   final Logger log = getIt.get();

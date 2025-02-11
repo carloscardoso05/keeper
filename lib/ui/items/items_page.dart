@@ -21,11 +21,16 @@ class ItemsPage extends StatefulWidget {
 
 class _ItemsPageState extends State<ItemsPage> {
   String searchValue = '';
+
   List<Item> filterItems(List<Item> items) {
     return items.where((item) {
       final name = item.name.toLowerCase();
+      final assetCode = item.assetCode.toLowerCase();
+      final description = item.description.toLowerCase();
       final search = searchValue.toLowerCase();
-      return name.contains(search);
+      return name.contains(search) ||
+          assetCode.contains(search) ||
+          description.contains(search);
     }).toList();
   }
 
@@ -115,7 +120,7 @@ class _ItemsPageState extends State<ItemsPage> {
                     ],
                   );
                 },
-                (failure) => Text(failure.toString()),
+                (failure) => Text('Ocorreu um erro ao carregar os itens'),
               )
           },
         ),

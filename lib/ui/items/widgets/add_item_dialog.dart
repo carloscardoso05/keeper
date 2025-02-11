@@ -17,7 +17,7 @@ class _AddItemDialogState extends State<AddItemDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Adicionar usuário'),
+      title: Text('Adicionar item'),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
