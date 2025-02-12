@@ -266,16 +266,9 @@ class $ItemTableTable extends ItemTable
       requiredDuringInsert: false,
       defaultConstraints:
           GeneratedColumn.constraintIsAlways('REFERENCES user_table (id)'));
-  static const VerificationMeta _propertiesMeta =
-      const VerificationMeta('properties');
-  @override
-  late final GeneratedColumnWithTypeConverter<dynamic, String> properties =
-      GeneratedColumn<String>('properties', aliasedName, true,
-              type: DriftSqlType.string, requiredDuringInsert: false)
-          .withConverter<dynamic>($ItemTableTable.$converterproperties);
   @override
   List<GeneratedColumn> get $columns =>
-      [id, assetCode, name, description, holderId, properties];
+      [id, assetCode, name, description, holderId];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -311,7 +304,6 @@ class $ItemTableTable extends ItemTable
       context.handle(_holderIdMeta,
           holderId.isAcceptableOrUnknown(data['holder_id']!, _holderIdMeta));
     }
-    context.handle(_propertiesMeta, const VerificationResult.success());
     return context;
   }
 
@@ -331,9 +323,6 @@ class $ItemTableTable extends ItemTable
           .read(DriftSqlType.string, data['${effectivePrefix}description'])!,
       holderId: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}holder_id']),
-      properties: $ItemTableTable.$converterproperties.fromSql(attachedDatabase
-          .typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}properties'])),
     );
   }
 
@@ -341,9 +330,6 @@ class $ItemTableTable extends ItemTable
   $ItemTableTable createAlias(String alias) {
     return $ItemTableTable(attachedDatabase, alias);
   }
-
-  static TypeConverter<dynamic, String?> $converterproperties =
-      const JsonConverter();
 }
 
 class ItemTableData extends DataClass implements Insertable<ItemTableData> {
@@ -352,14 +338,12 @@ class ItemTableData extends DataClass implements Insertable<ItemTableData> {
   final String name;
   final String description;
   final int? holderId;
-  final dynamic properties;
   const ItemTableData(
       {required this.id,
       required this.assetCode,
       required this.name,
       required this.description,
-      this.holderId,
-      this.properties});
+      this.holderId});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -369,10 +353,6 @@ class ItemTableData extends DataClass implements Insertable<ItemTableData> {
     map['description'] = Variable<String>(description);
     if (!nullToAbsent || holderId != null) {
       map['holder_id'] = Variable<int>(holderId);
-    }
-    if (!nullToAbsent || properties != null) {
-      map['properties'] = Variable<String>(
-          $ItemTableTable.$converterproperties.toSql(properties));
     }
     return map;
   }
@@ -386,9 +366,6 @@ class ItemTableData extends DataClass implements Insertable<ItemTableData> {
       holderId: holderId == null && nullToAbsent
           ? const Value.absent()
           : Value(holderId),
-      properties: properties == null && nullToAbsent
-          ? const Value.absent()
-          : Value(properties),
     );
   }
 
@@ -401,7 +378,6 @@ class ItemTableData extends DataClass implements Insertable<ItemTableData> {
       name: serializer.fromJson<String>(json['name']),
       description: serializer.fromJson<String>(json['description']),
       holderId: serializer.fromJson<int?>(json['holderId']),
-      properties: serializer.fromJson<dynamic>(json['properties']),
     );
   }
   @override
@@ -413,7 +389,6 @@ class ItemTableData extends DataClass implements Insertable<ItemTableData> {
       'name': serializer.toJson<String>(name),
       'description': serializer.toJson<String>(description),
       'holderId': serializer.toJson<int?>(holderId),
-      'properties': serializer.toJson<dynamic>(properties),
     };
   }
 
@@ -422,15 +397,13 @@ class ItemTableData extends DataClass implements Insertable<ItemTableData> {
           String? assetCode,
           String? name,
           String? description,
-          Value<int?> holderId = const Value.absent(),
-          Value<dynamic> properties = const Value.absent()}) =>
+          Value<int?> holderId = const Value.absent()}) =>
       ItemTableData(
         id: id ?? this.id,
         assetCode: assetCode ?? this.assetCode,
         name: name ?? this.name,
         description: description ?? this.description,
         holderId: holderId.present ? holderId.value : this.holderId,
-        properties: properties.present ? properties.value : this.properties,
       );
   ItemTableData copyWithCompanion(ItemTableCompanion data) {
     return ItemTableData(
@@ -440,8 +413,6 @@ class ItemTableData extends DataClass implements Insertable<ItemTableData> {
       description:
           data.description.present ? data.description.value : this.description,
       holderId: data.holderId.present ? data.holderId.value : this.holderId,
-      properties:
-          data.properties.present ? data.properties.value : this.properties,
     );
   }
 
@@ -452,15 +423,13 @@ class ItemTableData extends DataClass implements Insertable<ItemTableData> {
           ..write('assetCode: $assetCode, ')
           ..write('name: $name, ')
           ..write('description: $description, ')
-          ..write('holderId: $holderId, ')
-          ..write('properties: $properties')
+          ..write('holderId: $holderId')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode =>
-      Object.hash(id, assetCode, name, description, holderId, properties);
+  int get hashCode => Object.hash(id, assetCode, name, description, holderId);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -469,8 +438,7 @@ class ItemTableData extends DataClass implements Insertable<ItemTableData> {
           other.assetCode == this.assetCode &&
           other.name == this.name &&
           other.description == this.description &&
-          other.holderId == this.holderId &&
-          other.properties == this.properties);
+          other.holderId == this.holderId);
 }
 
 class ItemTableCompanion extends UpdateCompanion<ItemTableData> {
@@ -479,14 +447,12 @@ class ItemTableCompanion extends UpdateCompanion<ItemTableData> {
   final Value<String> name;
   final Value<String> description;
   final Value<int?> holderId;
-  final Value<dynamic> properties;
   const ItemTableCompanion({
     this.id = const Value.absent(),
     this.assetCode = const Value.absent(),
     this.name = const Value.absent(),
     this.description = const Value.absent(),
     this.holderId = const Value.absent(),
-    this.properties = const Value.absent(),
   });
   ItemTableCompanion.insert({
     this.id = const Value.absent(),
@@ -494,7 +460,6 @@ class ItemTableCompanion extends UpdateCompanion<ItemTableData> {
     required String name,
     this.description = const Value.absent(),
     this.holderId = const Value.absent(),
-    this.properties = const Value.absent(),
   })  : assetCode = Value(assetCode),
         name = Value(name);
   static Insertable<ItemTableData> custom({
@@ -503,7 +468,6 @@ class ItemTableCompanion extends UpdateCompanion<ItemTableData> {
     Expression<String>? name,
     Expression<String>? description,
     Expression<int>? holderId,
-    Expression<String>? properties,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -511,7 +475,6 @@ class ItemTableCompanion extends UpdateCompanion<ItemTableData> {
       if (name != null) 'name': name,
       if (description != null) 'description': description,
       if (holderId != null) 'holder_id': holderId,
-      if (properties != null) 'properties': properties,
     });
   }
 
@@ -520,15 +483,13 @@ class ItemTableCompanion extends UpdateCompanion<ItemTableData> {
       Value<String>? assetCode,
       Value<String>? name,
       Value<String>? description,
-      Value<int?>? holderId,
-      Value<dynamic>? properties}) {
+      Value<int?>? holderId}) {
     return ItemTableCompanion(
       id: id ?? this.id,
       assetCode: assetCode ?? this.assetCode,
       name: name ?? this.name,
       description: description ?? this.description,
       holderId: holderId ?? this.holderId,
-      properties: properties ?? this.properties,
     );
   }
 
@@ -550,10 +511,6 @@ class ItemTableCompanion extends UpdateCompanion<ItemTableData> {
     if (holderId.present) {
       map['holder_id'] = Variable<int>(holderId.value);
     }
-    if (properties.present) {
-      map['properties'] = Variable<String>(
-          $ItemTableTable.$converterproperties.toSql(properties.value));
-    }
     return map;
   }
 
@@ -564,8 +521,7 @@ class ItemTableCompanion extends UpdateCompanion<ItemTableData> {
           ..write('assetCode: $assetCode, ')
           ..write('name: $name, ')
           ..write('description: $description, ')
-          ..write('holderId: $holderId, ')
-          ..write('properties: $properties')
+          ..write('holderId: $holderId')
           ..write(')'))
         .toString();
   }
@@ -1268,7 +1224,6 @@ typedef $$ItemTableTableCreateCompanionBuilder = ItemTableCompanion Function({
   required String name,
   Value<String> description,
   Value<int?> holderId,
-  Value<dynamic> properties,
 });
 typedef $$ItemTableTableUpdateCompanionBuilder = ItemTableCompanion Function({
   Value<int> id,
@@ -1276,7 +1231,6 @@ typedef $$ItemTableTableUpdateCompanionBuilder = ItemTableCompanion Function({
   Value<String> name,
   Value<String> description,
   Value<int?> holderId,
-  Value<dynamic> properties,
 });
 
 final class $$ItemTableTableReferences
@@ -1320,11 +1274,6 @@ class $$ItemTableTableFilterComposer
   ColumnFilters<String> get description => $composableBuilder(
       column: $table.description, builder: (column) => ColumnFilters(column));
 
-  ColumnWithTypeConverterFilters<dynamic, dynamic, String> get properties =>
-      $composableBuilder(
-          column: $table.properties,
-          builder: (column) => ColumnWithTypeConverterFilters(column));
-
   $$UserTableTableFilterComposer get holderId {
     final $$UserTableTableFilterComposer composer = $composerBuilder(
         composer: this,
@@ -1367,9 +1316,6 @@ class $$ItemTableTableOrderingComposer
   ColumnOrderings<String> get description => $composableBuilder(
       column: $table.description, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get properties => $composableBuilder(
-      column: $table.properties, builder: (column) => ColumnOrderings(column));
-
   $$UserTableTableOrderingComposer get holderId {
     final $$UserTableTableOrderingComposer composer = $composerBuilder(
         composer: this,
@@ -1411,10 +1357,6 @@ class $$ItemTableTableAnnotationComposer
 
   GeneratedColumn<String> get description => $composableBuilder(
       column: $table.description, builder: (column) => column);
-
-  GeneratedColumnWithTypeConverter<dynamic, String> get properties =>
-      $composableBuilder(
-          column: $table.properties, builder: (column) => column);
 
   $$UserTableTableAnnotationComposer get holderId {
     final $$UserTableTableAnnotationComposer composer = $composerBuilder(
@@ -1465,7 +1407,6 @@ class $$ItemTableTableTableManager extends RootTableManager<
             Value<String> name = const Value.absent(),
             Value<String> description = const Value.absent(),
             Value<int?> holderId = const Value.absent(),
-            Value<dynamic> properties = const Value.absent(),
           }) =>
               ItemTableCompanion(
             id: id,
@@ -1473,7 +1414,6 @@ class $$ItemTableTableTableManager extends RootTableManager<
             name: name,
             description: description,
             holderId: holderId,
-            properties: properties,
           ),
           createCompanionCallback: ({
             Value<int> id = const Value.absent(),
@@ -1481,7 +1421,6 @@ class $$ItemTableTableTableManager extends RootTableManager<
             required String name,
             Value<String> description = const Value.absent(),
             Value<int?> holderId = const Value.absent(),
-            Value<dynamic> properties = const Value.absent(),
           }) =>
               ItemTableCompanion.insert(
             id: id,
@@ -1489,7 +1428,6 @@ class $$ItemTableTableTableManager extends RootTableManager<
             name: name,
             description: description,
             holderId: holderId,
-            properties: properties,
           ),
           withReferenceMapper: (p0) => p0
               .map((e) => (

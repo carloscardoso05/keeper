@@ -6,5 +6,4 @@ class ItemTable extends Table {
   TextColumn get name => text()();
   TextColumn get description => text().withDefault(const Constant(''))();
   IntColumn get holderId => integer().nullable().references(UserTable, #id)();
-  TextColumn get properties => text().nullable().map(const JsonConverter())();
 }

@@ -37,18 +37,4 @@ class LocalDb extends _$LocalDb {
     );
     return db;
   }
-
-  @override
-  MigrationStrategy get migration {
-    return MigrationStrategy(
-      onUpgrade: stepByStep(
-        from1To2: (m, schema) async {
-          await m.addColumn(schema.users, schema.users.birthdate);
-        },
-        from2To3: (m, schema) async {
-          await m.deleteTable('users');
-        },
-      ),
-    );
-  }
 }

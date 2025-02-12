@@ -8,3 +8,8 @@ targets:
     exclude:
       - lib/**.freezed.dart
       - lib/**.g.dart
+  builders:
+    drift_dev:
+      options:
+        databases:
+          keeper_db: lib\data\services\drift\local_db.dart
