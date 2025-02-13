@@ -7,6 +7,7 @@ import 'package:keeper/data/repositories/user/drift_user_repository.dart';
 import 'package:keeper/data/repositories/user/user_repository.dart';
 import 'package:keeper/data/services/drift/local_db.dart';
 import 'package:keeper/data/services/item/drift_item_service.dart';
+import 'package:keeper/data/services/item/item_converter.dart';
 import 'package:keeper/data/services/project/drift_project_service.dart';
 import 'package:keeper/data/services/user/drift_user_service.dart';
 import 'package:logger/logger.dart';
@@ -15,6 +16,8 @@ Future<void> setupGetIt() async {
   final getIt = GetIt.instance;
 
   getIt.registerSingleton(Logger());
+
+  getIt.registerSingleton(ItemConverter());
 
   final db = getIt.registerSingleton(LocalDb());
 

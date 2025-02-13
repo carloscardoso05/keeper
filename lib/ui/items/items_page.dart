@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:go_router/go_router.dart';
 import 'package:keeper/domain/dtos/item_dto.dart';
 import 'package:keeper/domain/entities/item.dart';
 import 'package:keeper/ui/items/viewmodels/items/items_cubit.dart';
@@ -57,72 +58,87 @@ class _ItemsPageState extends State<ItemsPage> {
       body: Center(
         child: BlocBuilder<ItemsCubit, ItemsState>(
           bloc: widget.cubit,
-          builder: (context, state) => switch (state) {
-            Initial() || Loading() => CircularProgressIndicator(),
-            Loaded() => state.result.fold(
-                (success) {
-                  final items = filterItems(success.values.toList());
-                  return Column(
-                    children: [
-                      SizedBox(
-                        height: 45,
-                        width: MediaQuery.of(context).size.width * 0.9,
-                        child: SearchBar(
-                          leading: Icon(Icons.search),
-                          hintText: 'Busca pelo nome',
-                          elevation: WidgetStatePropertyAll(2),
-                          onChanged: (value) => setState(() {
-                            searchValue = value;
-                          }),
-                        ),
+          builder: (context, state) => state.maybeWhen(
+            orElse: () => CircularProgressIndicator(),
+            loaded: (result) => result.fold(
+              (data) {
+                final items = filterItems(data.items.values.toList());
+                return Column(
+                  children: [
+                    SizedBox(
+                      height: 45,
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      child: SearchBar(
+                        leading: Icon(Icons.search),
+                        hintText: 'Busca pelo nome',
+                        elevation: WidgetStatePropertyAll(2),
+                        onChanged: (value) => setState(() {
+                          searchValue = value;
+                        }),
                       ),
-                      if (items.isEmpty) Text('Nenhum item encontrado'),
-                      ListView.builder(
-                        itemCount: items.length,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          final item = items[index];
-                          return Slidable(
-                            endActionPane: ActionPane(
-                              extentRatio: 0.2,
-                              motion: ScrollMotion(),
+                    ),
+                    if (items.isEmpty) Text('Nenhum item encontrado'),
+                    ListView.builder(
+                      itemCount: items.length,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        final item = items[index];
+                        final holder = data.holders[item.holderId];
+                        return Slidable(
+                          endActionPane: ActionPane(
+                            extentRatio: 0.2,
+                            motion: ScrollMotion(),
+                            children: [
+                              SlidableAction(
+                                backgroundColor: Colors.red,
+                                onPressed: (context) async {
+                                  final delete = await showDialog<bool>(
+                                    context: context,
+                                    builder: (context) => DeleteModal(
+                                      title: 'Apagar item',
+                                      content:
+                                          'Deseja apagar o item "${item.name}"?',
+                                    ),
+                                  );
+                                  if (delete == true) {
+                                    widget.cubit.deleteItem(item.id);
+                                  }
+                                },
+                                icon: Icons.delete,
+                              ),
+                            ],
+                          ),
+                          child: ListTile(
+                            leading: Icon(Icons.construction),
+                            title: Text(item.name),
+                            isThreeLine: true,
+                            onTap: () => context.push(
+                              '/items/detail',
+                              extra: (holder: holder, item: item),
+                            ),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                SlidableAction(
-                                  backgroundColor: Colors.red,
-                                  onPressed: (context) async {
-                                    final delete = await showDialog<bool>(
-                                      context: context,
-                                      builder: (context) => DeleteModal(
-                                        title: 'Apagar item',
-                                        content:
-                                            'Deseja apagar o item "${item.name}?"',
-                                      ),
-                                    );
-                                    if (delete == true) {
-                                      widget.cubit.deleteItem(item.id);
-                                    }
-                                  },
-                                  icon: Icons.delete,
+                                Text(
+                                  item.assetCode,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                Text(
+                                  holder?.name ?? 'Sem responsável',
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ],
                             ),
-                            child: ListTile(
-                              leading: Icon(Icons.construction),
-                              title: Text('${item.name} (${item.assetCode})'),
-                              subtitle: Text(
-                                item.description,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  );
-                },
-                (failure) => Text('Ocorreu um erro ao carregar os itens'),
-              )
-          },
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                );
+              },
+              (failure) => Text('Ocorreu um erro ao carregar os itens'),
+            ),
+          ),
         ),
       ),
     );

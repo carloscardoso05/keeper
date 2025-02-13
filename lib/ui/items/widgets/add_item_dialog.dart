@@ -30,7 +30,7 @@ class _AddItemDialogState extends State<AddItemDialog> {
             ),
           ),
           TextFormField(
-            onChanged: (value) => setState(() => item.description = value),
+            onChanged: (value) => setState(() => item.assetCode = value),
             autovalidateMode: AutovalidateMode.onUserInteraction,
             validator: validator.byField(item, 'assetCode'),
             decoration: InputDecoration(
