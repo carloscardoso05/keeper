@@ -1,9 +1,9 @@
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
+import 'package:keeper/data/services/drift/local_db.steps.dart';
 import 'package:keeper/domain/entities/project.dart';
 import 'package:keeper/domain/entities/user.dart';
 import 'package:keeper/main.dart';
-import 'package:keeper/utils/data/services/json_converter.dart';
 import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -36,5 +36,14 @@ class LocalDb extends _$LocalDb {
           getIt.get<Logger>().d('Database connection opened on $directory'),
     );
     return db;
+  }
+
+  @override
+  MigrationStrategy get migration {
+    return MigrationStrategy(
+      onUpgrade: stepByStep(
+        from1To2: (m, schema) => m.dropColumn(schema.itemTable, 'properties'),
+      ),
+    );
   }
 }
