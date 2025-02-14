@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keeper/config/go_router.dart';
 
-class KeeperNavigationBar extends StatelessWidget {
+class KeeperNavigationBar extends StatefulWidget {
   const KeeperNavigationBar({super.key});
 
+  @override
+  State<KeeperNavigationBar> createState() => _KeeperNavigationBarState();
+}
+
+class _KeeperNavigationBarState extends State<KeeperNavigationBar> {
   final destinations = const <({NavigationDestination widget, String path})>[
     (
       widget: NavigationDestination(
@@ -21,9 +27,19 @@ class KeeperNavigationBar extends StatelessWidget {
     ),
   ];
 
+  late int index;
+
+  @override
+  void initState() {
+    super.initState();
+
+    index = destinations.indexWhere((d) => d.path == goRouter.state.path);
+  }
+
   @override
   Widget build(BuildContext context) {
     return NavigationBar(
+      selectedIndex: index,
       destinations: destinations.map((d) => d.widget).toList(),
       onDestinationSelected: (i) => context.push(destinations[i].path),
     );
