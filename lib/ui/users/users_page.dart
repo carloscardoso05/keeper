@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keeper/config/routes.dart';
 import 'package:keeper/domain/dtos/user_dto.dart';
 import 'package:keeper/domain/entities/user.dart';
 import 'package:keeper/ui/shared/delete_modal.dart';
@@ -129,7 +130,7 @@ class _UsersPageState extends State<UsersPage> {
                               title: Text(user.name),
                               onTap:
                                   () => context.push(
-                                    '/users/detail',
+                                    Routes.userDetail,
                                     extra: user,
                                   ),
                             ),

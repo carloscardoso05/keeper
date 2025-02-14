@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:keeper/config/routes.dart';
 import 'package:keeper/domain/entities/user.dart';
 import 'package:keeper/ui/items/item_details.dart';
 import 'package:keeper/ui/items/items_page.dart';
@@ -12,22 +13,22 @@ import 'package:keeper/ui/users/widgets/user_detail_page.dart';
 final GoRouter goRouter = GoRouter(
   routes: [
     GoRoute(
-      path: '/users',
+      path: Routes.users,
       builder: (context, state) => UsersPage(cubit: UsersCubit()),
     ),
     GoRoute(
-      path: '/users/detail',
+      path: Routes.userDetail,
       builder: (context, state) {
         final user = state.extra as User;
         return UserDetailPage(cubit: UserDetailCubit(user));
       },
     ),
     GoRoute(
-      path: '/items',
+      path: Routes.items,
       builder: (context, state) => ItemsPage(cubit: ItemsCubit()),
     ),
     GoRoute(
-      path: '/items/detail',
+      path: Routes.itemDetail,
       builder: (context, state) {
         final itemData = state.extra as ItemData;
         return ItemDetails(cubit: ItemDetailCubit(itemData));

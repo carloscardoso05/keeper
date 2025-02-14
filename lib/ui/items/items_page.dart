@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keeper/config/routes.dart';
 import 'package:keeper/domain/dtos/item_dto.dart';
 import 'package:keeper/domain/entities/item.dart';
 import 'package:keeper/ui/items/viewmodels/items/items_cubit.dart';
@@ -113,7 +114,7 @@ class _ItemsPageState extends State<ItemsPage> {
                             title: Text(item.name),
                             isThreeLine: true,
                             onTap: () => context.push(
-                              '/items/detail',
+                              Routes.itemDetail,
                               extra: (holder: holder, item: item),
                             ),
                             subtitle: Column(

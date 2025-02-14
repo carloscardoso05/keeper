@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keeper/config/go_router.dart';
+import 'package:keeper/config/routes.dart';
 
 class KeeperNavigationBar extends StatefulWidget {
   const KeeperNavigationBar({super.key});
@@ -16,14 +17,14 @@ class _KeeperNavigationBarState extends State<KeeperNavigationBar> {
         icon: Icon(Icons.people_alt_outlined),
         label: 'Usuários',
       ),
-      path: '/users',
+      path: Routes.users,
     ),
     (
       widget: NavigationDestination(
         icon: Icon(Icons.construction),
         label: 'Itens',
       ),
-      path: '/items',
+      path: Routes.items,
     ),
   ];
 
