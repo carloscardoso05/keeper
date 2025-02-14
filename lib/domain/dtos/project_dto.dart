@@ -8,7 +8,6 @@ class ProjectDto {
   late DateTime endDate;
   ProjectStatus status;
   int responsibleId;
-  late List<int> employeesIds;
 
   ProjectDto({
     this.id,
@@ -18,10 +17,8 @@ class ProjectDto {
     DateTime? endDate,
     this.status = ProjectStatus.paused,
     this.responsibleId = 0,
-    List<int>? employeesIds,
   }) {
     this.startDate = startDate ?? DateTime.now();
     this.endDate = endDate ?? DateTime.now();
-    this.employeesIds = employeesIds ?? [];
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:go_router/go_router.dart';
 import 'package:keeper/domain/dtos/user_dto.dart';
 import 'package:keeper/domain/entities/user.dart';
 import 'package:keeper/ui/shared/delete_modal.dart';
@@ -10,10 +11,7 @@ import 'package:keeper/ui/users/viewmodels/users/users_cubit.dart';
 import 'package:keeper/utils/domain/entities/user_extension.dart';
 
 class UsersPage extends StatefulWidget {
-  const UsersPage({
-    super.key,
-    required this.cubit,
-  });
+  const UsersPage({super.key, required this.cubit});
   final UsersCubit cubit;
 
   @override
@@ -34,10 +32,7 @@ class _UsersPageState extends State<UsersPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Usuários'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: Text('Usuários'), centerTitle: true),
       bottomNavigationBar: KeeperNavigationBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
@@ -54,10 +49,10 @@ class _UsersPageState extends State<UsersPage> {
       body: Center(
         child: BlocBuilder<UsersCubit, UsersState>(
           bloc: widget.cubit,
-          builder: (context, state) => switch (state) {
-            Initial() || Loading() => CircularProgressIndicator(),
-            Loaded() => state.result.fold(
-                (success) {
+          builder:
+              (context, state) => switch (state) {
+                Initial() || Loading() => CircularProgressIndicator(),
+                Loaded() => state.result.fold((success) {
                   final users = filterUsers(success.values.toList());
                   return Column(
                     children: [
@@ -68,9 +63,10 @@ class _UsersPageState extends State<UsersPage> {
                           leading: Icon(Icons.search),
                           hintText: 'Busca pelo nome',
                           elevation: WidgetStatePropertyAll(2),
-                          onChanged: (value) => setState(() {
-                            searchValue = value;
-                          }),
+                          onChanged:
+                              (value) => setState(() {
+                                searchValue = value;
+                              }),
                         ),
                       ),
                       SingleChildScrollView(
@@ -84,13 +80,14 @@ class _UsersPageState extends State<UsersPage> {
                                 child: ChoiceChip(
                                   label: Text(type.getName()),
                                   selected: selectedTypes.contains(type),
-                                  onSelected: (selected) => setState(() {
-                                    if (selected) {
-                                      selectedTypes.add(type);
-                                    } else {
-                                      selectedTypes.remove(type);
-                                    }
-                                  }),
+                                  onSelected:
+                                      (selected) => setState(() {
+                                        if (selected) {
+                                          selectedTypes.add(type);
+                                        } else {
+                                          selectedTypes.remove(type);
+                                        }
+                                      }),
                                 ),
                               ),
                           ],
@@ -112,11 +109,12 @@ class _UsersPageState extends State<UsersPage> {
                                   onPressed: (context) async {
                                     final delete = await showDialog<bool>(
                                       context: context,
-                                      builder: (context) => DeleteModal(
-                                        title: 'Apagar usuário',
-                                        content:
-                                            'Deseja apagar o usuário "${user.name}?"',
-                                      ),
+                                      builder:
+                                          (context) => DeleteModal(
+                                            title: 'Apagar usuário',
+                                            content:
+                                                'Deseja apagar o usuário "${user.name}?"',
+                                          ),
                                     );
                                     if (delete == true) {
                                       widget.cubit.deleteUser(user.id);
@@ -129,16 +127,19 @@ class _UsersPageState extends State<UsersPage> {
                             child: ListTile(
                               leading: user.type.getIcon(),
                               title: Text(user.name),
+                              onTap:
+                                  () => context.push(
+                                    '/users/detail',
+                                    extra: user,
+                                  ),
                             ),
                           );
                         },
                       ),
                     ],
                   );
-                },
-                (failure) => Text(failure.toString()),
-              )
-          },
+                }, (failure) => Text(failure.toString())),
+              },
         ),
       ),
     );

@@ -15,7 +15,6 @@ class Project with _$Project {
     required DateTime endDate,
     required ProjectStatus status,
     required int responsibleId,
-    @Default([]) List<int> employeesIds,
   }) = _Project;
 
   factory Project.fromJson(Map<String, dynamic> json) =>

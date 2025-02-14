@@ -23,13 +23,25 @@ class DriftItemService {
     }
   }
 
+  AsyncResult<Map<int, Item>> getByUserId(int userId) async {
+    try {
+      return (await manager
+          .filter((item) => item.holderId.id(userId))
+          .get()
+          .then(
+            (items) => Map<int, Item>.fromEntries(items.map(_entryFromDb)),
+          )).toSuccess();
+    } on Exception catch (e) {
+      return Failure(e);
+    }
+  }
+
   AsyncResult<Item> get(int id) async {
     try {
       return (await manager
-              .filter((item) => item.id(id))
-              .getSingle()
-              .then(toModel))
-          .toSuccess();
+          .filter((item) => item.id(id))
+          .getSingle()
+          .then(toModel)).toSuccess();
     } on Exception catch (e) {
       return Failure(e);
     }
@@ -38,8 +50,8 @@ class DriftItemService {
   AsyncResult<Map<int, Item>> getAll() async {
     try {
       return (await manager.get().then(
-              (items) => Map<int, Item>.fromEntries(items.map(_entryFromDb))))
-          .toSuccess();
+        (items) => Map<int, Item>.fromEntries(items.map(_entryFromDb)),
+      )).toSuccess();
     } on Exception catch (e, s) {
       logger.e(s);
       return Failure(e);

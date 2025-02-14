@@ -37,7 +37,6 @@ class DriftProjectRepository implements ProjectRepository {
       address: model.address,
       startDate: model.startDate,
       endDate: model.endDate,
-      employeesIds: model.employeesIds,
       responsibleId: model.responsibleId,
       status: model.status,
     );
@@ -51,7 +50,6 @@ class DriftProjectRepository implements ProjectRepository {
       address: dto.address,
       startDate: dto.startDate,
       endDate: dto.endDate,
-      employeesIds: dto.employeesIds,
       responsibleId: dto.responsibleId,
       status: dto.status,
     );

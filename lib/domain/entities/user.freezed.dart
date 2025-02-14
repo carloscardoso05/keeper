@@ -24,7 +24,6 @@ mixin _$User {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   UserType get type => throw _privateConstructorUsedError;
-  List<int> get itemsIds => throw _privateConstructorUsedError;
   int? get projectId => throw _privateConstructorUsedError;
 
   /// Serializes this User to a JSON map.
@@ -41,13 +40,7 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call({
-    int id,
-    String name,
-    UserType type,
-    List<int> itemsIds,
-    int? projectId,
-  });
+  $Res call({int id, String name, UserType type, int? projectId});
 }
 
 /// @nodoc
@@ -68,7 +61,6 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? id = null,
     Object? name = null,
     Object? type = null,
-    Object? itemsIds = null,
     Object? projectId = freezed,
   }) {
     return _then(
@@ -88,11 +80,6 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
                     ? _value.type
                     : type // ignore: cast_nullable_to_non_nullable
                         as UserType,
-            itemsIds:
-                null == itemsIds
-                    ? _value.itemsIds
-                    : itemsIds // ignore: cast_nullable_to_non_nullable
-                        as List<int>,
             projectId:
                 freezed == projectId
                     ? _value.projectId
@@ -112,13 +99,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
   ) = __$$UserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    int id,
-    String name,
-    UserType type,
-    List<int> itemsIds,
-    int? projectId,
-  });
+  $Res call({int id, String name, UserType type, int? projectId});
 }
 
 /// @nodoc
@@ -136,7 +117,6 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? type = null,
-    Object? itemsIds = null,
     Object? projectId = freezed,
   }) {
     return _then(
@@ -156,11 +136,6 @@ class __$$UserImplCopyWithImpl<$Res>
                 ? _value.type
                 : type // ignore: cast_nullable_to_non_nullable
                     as UserType,
-        itemsIds:
-            null == itemsIds
-                ? _value._itemsIds
-                : itemsIds // ignore: cast_nullable_to_non_nullable
-                    as List<int>,
         projectId:
             freezed == projectId
                 ? _value.projectId
@@ -178,9 +153,8 @@ class _$UserImpl implements _User {
     required this.id,
     required this.name,
     required this.type,
-    final List<int> itemsIds = const [],
     this.projectId,
-  }) : _itemsIds = itemsIds;
+  });
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserImplFromJson(json);
@@ -191,21 +165,12 @@ class _$UserImpl implements _User {
   final String name;
   @override
   final UserType type;
-  final List<int> _itemsIds;
-  @override
-  @JsonKey()
-  List<int> get itemsIds {
-    if (_itemsIds is EqualUnmodifiableListView) return _itemsIds;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_itemsIds);
-  }
-
   @override
   final int? projectId;
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, type: $type, itemsIds: $itemsIds, projectId: $projectId)';
+    return 'User(id: $id, name: $name, type: $type, projectId: $projectId)';
   }
 
   @override
@@ -216,21 +181,13 @@ class _$UserImpl implements _User {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.type, type) || other.type == type) &&
-            const DeepCollectionEquality().equals(other._itemsIds, _itemsIds) &&
             (identical(other.projectId, projectId) ||
                 other.projectId == projectId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    id,
-    name,
-    type,
-    const DeepCollectionEquality().hash(_itemsIds),
-    projectId,
-  );
+  int get hashCode => Object.hash(runtimeType, id, name, type, projectId);
 
   /// Create a copy of User
   /// with the given fields replaced by the non-null parameter values.
@@ -251,7 +208,6 @@ abstract class _User implements User {
     required final int id,
     required final String name,
     required final UserType type,
-    final List<int> itemsIds,
     final int? projectId,
   }) = _$UserImpl;
 
@@ -263,8 +219,6 @@ abstract class _User implements User {
   String get name;
   @override
   UserType get type;
-  @override
-  List<int> get itemsIds;
   @override
   int? get projectId;
 

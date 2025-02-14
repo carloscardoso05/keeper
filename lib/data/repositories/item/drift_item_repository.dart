@@ -50,4 +50,9 @@ class DriftItemRepository implements ItemRepository {
       holderId: dto.holderId,
     );
   }
+  
+  @override
+  AsyncResult<Map<int, Item>> getByUserId(int userId) {
+    return _service.getByUserId(userId);
+  }
 }

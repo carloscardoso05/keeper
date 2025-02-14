@@ -10,11 +10,6 @@ _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
   id: (json['id'] as num).toInt(),
   name: json['name'] as String,
   type: $enumDecode(_$UserTypeEnumMap, json['type']),
-  itemsIds:
-      (json['itemsIds'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
-          .toList() ??
-      const [],
   projectId: (json['projectId'] as num?)?.toInt(),
 );
 
@@ -23,7 +18,6 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
       'id': instance.id,
       'name': instance.name,
       'type': _$UserTypeEnumMap[instance.type]!,
-      'itemsIds': instance.itemsIds,
       'projectId': instance.projectId,
     };
 

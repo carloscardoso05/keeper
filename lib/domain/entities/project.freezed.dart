@@ -28,7 +28,6 @@ mixin _$Project {
   DateTime get endDate => throw _privateConstructorUsedError;
   ProjectStatus get status => throw _privateConstructorUsedError;
   int get responsibleId => throw _privateConstructorUsedError;
-  List<int> get employeesIds => throw _privateConstructorUsedError;
 
   /// Serializes this Project to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -52,7 +51,6 @@ abstract class $ProjectCopyWith<$Res> {
     DateTime endDate,
     ProjectStatus status,
     int responsibleId,
-    List<int> employeesIds,
   });
 }
 
@@ -78,7 +76,6 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
     Object? endDate = null,
     Object? status = null,
     Object? responsibleId = null,
-    Object? employeesIds = null,
   }) {
     return _then(
       _value.copyWith(
@@ -117,11 +114,6 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
                     ? _value.responsibleId
                     : responsibleId // ignore: cast_nullable_to_non_nullable
                         as int,
-            employeesIds:
-                null == employeesIds
-                    ? _value.employeesIds
-                    : employeesIds // ignore: cast_nullable_to_non_nullable
-                        as List<int>,
           )
           as $Val,
     );
@@ -144,7 +136,6 @@ abstract class _$$ProjectImplCopyWith<$Res> implements $ProjectCopyWith<$Res> {
     DateTime endDate,
     ProjectStatus status,
     int responsibleId,
-    List<int> employeesIds,
   });
 }
 
@@ -169,7 +160,6 @@ class __$$ProjectImplCopyWithImpl<$Res>
     Object? endDate = null,
     Object? status = null,
     Object? responsibleId = null,
-    Object? employeesIds = null,
   }) {
     return _then(
       _$ProjectImpl(
@@ -208,11 +198,6 @@ class __$$ProjectImplCopyWithImpl<$Res>
                 ? _value.responsibleId
                 : responsibleId // ignore: cast_nullable_to_non_nullable
                     as int,
-        employeesIds:
-            null == employeesIds
-                ? _value._employeesIds
-                : employeesIds // ignore: cast_nullable_to_non_nullable
-                    as List<int>,
       ),
     );
   }
@@ -229,8 +214,7 @@ class _$ProjectImpl implements _Project {
     required this.endDate,
     required this.status,
     required this.responsibleId,
-    final List<int> employeesIds = const [],
-  }) : _employeesIds = employeesIds;
+  });
 
   factory _$ProjectImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProjectImplFromJson(json);
@@ -249,18 +233,10 @@ class _$ProjectImpl implements _Project {
   final ProjectStatus status;
   @override
   final int responsibleId;
-  final List<int> _employeesIds;
-  @override
-  @JsonKey()
-  List<int> get employeesIds {
-    if (_employeesIds is EqualUnmodifiableListView) return _employeesIds;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_employeesIds);
-  }
 
   @override
   String toString() {
-    return 'Project(id: $id, name: $name, address: $address, startDate: $startDate, endDate: $endDate, status: $status, responsibleId: $responsibleId, employeesIds: $employeesIds)';
+    return 'Project(id: $id, name: $name, address: $address, startDate: $startDate, endDate: $endDate, status: $status, responsibleId: $responsibleId)';
   }
 
   @override
@@ -276,11 +252,7 @@ class _$ProjectImpl implements _Project {
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.responsibleId, responsibleId) ||
-                other.responsibleId == responsibleId) &&
-            const DeepCollectionEquality().equals(
-              other._employeesIds,
-              _employeesIds,
-            ));
+                other.responsibleId == responsibleId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -294,7 +266,6 @@ class _$ProjectImpl implements _Project {
     endDate,
     status,
     responsibleId,
-    const DeepCollectionEquality().hash(_employeesIds),
   );
 
   /// Create a copy of Project
@@ -320,7 +291,6 @@ abstract class _Project implements Project {
     required final DateTime endDate,
     required final ProjectStatus status,
     required final int responsibleId,
-    final List<int> employeesIds,
   }) = _$ProjectImpl;
 
   factory _Project.fromJson(Map<String, dynamic> json) = _$ProjectImpl.fromJson;
@@ -339,8 +309,6 @@ abstract class _Project implements Project {
   ProjectStatus get status;
   @override
   int get responsibleId;
-  @override
-  List<int> get employeesIds;
 
   /// Create a copy of Project
   /// with the given fields replaced by the non-null parameter values.

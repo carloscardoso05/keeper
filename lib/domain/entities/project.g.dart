@@ -15,11 +15,6 @@ _$ProjectImpl _$$ProjectImplFromJson(Map<String, dynamic> json) =>
       endDate: DateTime.parse(json['endDate'] as String),
       status: $enumDecode(_$ProjectStatusEnumMap, json['status']),
       responsibleId: (json['responsibleId'] as num).toInt(),
-      employeesIds:
-          (json['employeesIds'] as List<dynamic>?)
-              ?.map((e) => (e as num).toInt())
-              .toList() ??
-          const [],
     );
 
 Map<String, dynamic> _$$ProjectImplToJson(_$ProjectImpl instance) =>
@@ -31,7 +26,6 @@ Map<String, dynamic> _$$ProjectImplToJson(_$ProjectImpl instance) =>
       'endDate': instance.endDate.toIso8601String(),
       'status': _$ProjectStatusEnumMap[instance.status]!,
       'responsibleId': instance.responsibleId,
-      'employeesIds': instance.employeesIds,
     };
 
 const _$ProjectStatusEnumMap = {

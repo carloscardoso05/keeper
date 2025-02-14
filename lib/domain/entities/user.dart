@@ -11,7 +11,6 @@ class User with _$User {
     required int id,
     required String name,
     required UserType type,
-    @Default([]) List<int> itemsIds,
     int? projectId,
   }) = _User;
 

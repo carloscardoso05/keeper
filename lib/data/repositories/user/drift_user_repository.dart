@@ -42,7 +42,6 @@ class DriftUserRepository implements UserRepository {
   UserDto toDto(User model) {
     return UserDto(
       id: model.id,
-      itemsIds: model.itemsIds,
       name: model.name,
       type: model.type,
     );
@@ -52,7 +51,6 @@ class DriftUserRepository implements UserRepository {
   User toModel(UserDto dto) {
     return User(
       id: dto.id ?? 0,
-      itemsIds: dto.itemsIds,
       name: dto.name,
       type: dto.type,
     );
