@@ -12,7 +12,8 @@ part of 'item.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Item _$ItemFromJson(Map<String, dynamic> json) {
   return _Item.fromJson(json);
@@ -40,12 +41,13 @@ abstract class $ItemCopyWith<$Res> {
   factory $ItemCopyWith(Item value, $Res Function(Item) then) =
       _$ItemCopyWithImpl<$Res, Item>;
   @useResult
-  $Res call(
-      {int id,
-      String assetCode,
-      String name,
-      String description,
-      int? holderId});
+  $Res call({
+    int id,
+    String assetCode,
+    String name,
+    String description,
+    int? holderId,
+  });
 }
 
 /// @nodoc
@@ -69,44 +71,54 @@ class _$ItemCopyWithImpl<$Res, $Val extends Item>
     Object? description = null,
     Object? holderId = freezed,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      assetCode: null == assetCode
-          ? _value.assetCode
-          : assetCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      holderId: freezed == holderId
-          ? _value.holderId
-          : holderId // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as int,
+            assetCode:
+                null == assetCode
+                    ? _value.assetCode
+                    : assetCode // ignore: cast_nullable_to_non_nullable
+                        as String,
+            name:
+                null == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String,
+            description:
+                null == description
+                    ? _value.description
+                    : description // ignore: cast_nullable_to_non_nullable
+                        as String,
+            holderId:
+                freezed == holderId
+                    ? _value.holderId
+                    : holderId // ignore: cast_nullable_to_non_nullable
+                        as int?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$ItemImplCopyWith<$Res> implements $ItemCopyWith<$Res> {
   factory _$$ItemImplCopyWith(
-          _$ItemImpl value, $Res Function(_$ItemImpl) then) =
-      __$$ItemImplCopyWithImpl<$Res>;
+    _$ItemImpl value,
+    $Res Function(_$ItemImpl) then,
+  ) = __$$ItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int id,
-      String assetCode,
-      String name,
-      String description,
-      int? holderId});
+  $Res call({
+    int id,
+    String assetCode,
+    String name,
+    String description,
+    int? holderId,
+  });
 }
 
 /// @nodoc
@@ -114,7 +126,7 @@ class __$$ItemImplCopyWithImpl<$Res>
     extends _$ItemCopyWithImpl<$Res, _$ItemImpl>
     implements _$$ItemImplCopyWith<$Res> {
   __$$ItemImplCopyWithImpl(_$ItemImpl _value, $Res Function(_$ItemImpl) _then)
-      : super(_value, _then);
+    : super(_value, _then);
 
   /// Create a copy of Item
   /// with the given fields replaced by the non-null parameter values.
@@ -127,40 +139,48 @@ class __$$ItemImplCopyWithImpl<$Res>
     Object? description = null,
     Object? holderId = freezed,
   }) {
-    return _then(_$ItemImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      assetCode: null == assetCode
-          ? _value.assetCode
-          : assetCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      holderId: freezed == holderId
-          ? _value.holderId
-          : holderId // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
+    return _then(
+      _$ItemImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as int,
+        assetCode:
+            null == assetCode
+                ? _value.assetCode
+                : assetCode // ignore: cast_nullable_to_non_nullable
+                    as String,
+        name:
+            null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+        description:
+            null == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                    as String,
+        holderId:
+            freezed == holderId
+                ? _value.holderId
+                : holderId // ignore: cast_nullable_to_non_nullable
+                    as int?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$ItemImpl implements _Item {
-  _$ItemImpl(
-      {required this.id,
-      required this.assetCode,
-      required this.name,
-      this.description = '',
-      this.holderId});
+  _$ItemImpl({
+    required this.id,
+    required this.assetCode,
+    required this.name,
+    this.description = '',
+    this.holderId,
+  });
 
   factory _$ItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$ItemImplFromJson(json);
@@ -212,19 +232,18 @@ class _$ItemImpl implements _Item {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ItemImplToJson(
-      this,
-    );
+    return _$$ItemImplToJson(this);
   }
 }
 
 abstract class _Item implements Item {
-  factory _Item(
-      {required final int id,
-      required final String assetCode,
-      required final String name,
-      final String description,
-      final int? holderId}) = _$ItemImpl;
+  factory _Item({
+    required final int id,
+    required final String assetCode,
+    required final String name,
+    final String description,
+    final int? holderId,
+  }) = _$ItemImpl;
 
   factory _Item.fromJson(Map<String, dynamic> json) = _$ItemImpl.fromJson;
 

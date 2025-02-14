@@ -12,7 +12,8 @@ part of 'transfer.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Transfer _$TransferFromJson(Map<String, dynamic> json) {
   return _Transfer.fromJson(json);
@@ -42,13 +43,14 @@ abstract class $TransferCopyWith<$Res> {
   factory $TransferCopyWith(Transfer value, $Res Function(Transfer) then) =
       _$TransferCopyWithImpl<$Res, Transfer>;
   @useResult
-  $Res call(
-      {int id,
-      int itemId,
-      int requesterId,
-      int? destinationId,
-      DateTime createdAt,
-      TransferStatus status});
+  $Res call({
+    int id,
+    int itemId,
+    int requesterId,
+    int? destinationId,
+    DateTime createdAt,
+    TransferStatus status,
+  });
 }
 
 /// @nodoc
@@ -73,32 +75,41 @@ class _$TransferCopyWithImpl<$Res, $Val extends Transfer>
     Object? createdAt = null,
     Object? status = null,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      itemId: null == itemId
-          ? _value.itemId
-          : itemId // ignore: cast_nullable_to_non_nullable
-              as int,
-      requesterId: null == requesterId
-          ? _value.requesterId
-          : requesterId // ignore: cast_nullable_to_non_nullable
-              as int,
-      destinationId: freezed == destinationId
-          ? _value.destinationId
-          : destinationId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as TransferStatus,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as int,
+            itemId:
+                null == itemId
+                    ? _value.itemId
+                    : itemId // ignore: cast_nullable_to_non_nullable
+                        as int,
+            requesterId:
+                null == requesterId
+                    ? _value.requesterId
+                    : requesterId // ignore: cast_nullable_to_non_nullable
+                        as int,
+            destinationId:
+                freezed == destinationId
+                    ? _value.destinationId
+                    : destinationId // ignore: cast_nullable_to_non_nullable
+                        as int?,
+            createdAt:
+                null == createdAt
+                    ? _value.createdAt
+                    : createdAt // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+            status:
+                null == status
+                    ? _value.status
+                    : status // ignore: cast_nullable_to_non_nullable
+                        as TransferStatus,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -106,17 +117,19 @@ class _$TransferCopyWithImpl<$Res, $Val extends Transfer>
 abstract class _$$TransferImplCopyWith<$Res>
     implements $TransferCopyWith<$Res> {
   factory _$$TransferImplCopyWith(
-          _$TransferImpl value, $Res Function(_$TransferImpl) then) =
-      __$$TransferImplCopyWithImpl<$Res>;
+    _$TransferImpl value,
+    $Res Function(_$TransferImpl) then,
+  ) = __$$TransferImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int id,
-      int itemId,
-      int requesterId,
-      int? destinationId,
-      DateTime createdAt,
-      TransferStatus status});
+  $Res call({
+    int id,
+    int itemId,
+    int requesterId,
+    int? destinationId,
+    DateTime createdAt,
+    TransferStatus status,
+  });
 }
 
 /// @nodoc
@@ -124,8 +137,9 @@ class __$$TransferImplCopyWithImpl<$Res>
     extends _$TransferCopyWithImpl<$Res, _$TransferImpl>
     implements _$$TransferImplCopyWith<$Res> {
   __$$TransferImplCopyWithImpl(
-      _$TransferImpl _value, $Res Function(_$TransferImpl) _then)
-      : super(_value, _then);
+    _$TransferImpl _value,
+    $Res Function(_$TransferImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of Transfer
   /// with the given fields replaced by the non-null parameter values.
@@ -139,45 +153,54 @@ class __$$TransferImplCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? status = null,
   }) {
-    return _then(_$TransferImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      itemId: null == itemId
-          ? _value.itemId
-          : itemId // ignore: cast_nullable_to_non_nullable
-              as int,
-      requesterId: null == requesterId
-          ? _value.requesterId
-          : requesterId // ignore: cast_nullable_to_non_nullable
-              as int,
-      destinationId: freezed == destinationId
-          ? _value.destinationId
-          : destinationId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as TransferStatus,
-    ));
+    return _then(
+      _$TransferImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as int,
+        itemId:
+            null == itemId
+                ? _value.itemId
+                : itemId // ignore: cast_nullable_to_non_nullable
+                    as int,
+        requesterId:
+            null == requesterId
+                ? _value.requesterId
+                : requesterId // ignore: cast_nullable_to_non_nullable
+                    as int,
+        destinationId:
+            freezed == destinationId
+                ? _value.destinationId
+                : destinationId // ignore: cast_nullable_to_non_nullable
+                    as int?,
+        createdAt:
+            null == createdAt
+                ? _value.createdAt
+                : createdAt // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        status:
+            null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                    as TransferStatus,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$TransferImpl implements _Transfer {
-  _$TransferImpl(
-      {required this.id,
-      required this.itemId,
-      required this.requesterId,
-      required this.destinationId,
-      required this.createdAt,
-      required this.status});
+  _$TransferImpl({
+    required this.id,
+    required this.itemId,
+    required this.requesterId,
+    required this.destinationId,
+    required this.createdAt,
+    required this.status,
+  });
 
   factory _$TransferImpl.fromJson(Map<String, dynamic> json) =>
       _$$TransferImplFromJson(json);
@@ -219,7 +242,14 @@ class _$TransferImpl implements _Transfer {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, itemId, requesterId, destinationId, createdAt, status);
+    runtimeType,
+    id,
+    itemId,
+    requesterId,
+    destinationId,
+    createdAt,
+    status,
+  );
 
   /// Create a copy of Transfer
   /// with the given fields replaced by the non-null parameter values.
@@ -231,20 +261,19 @@ class _$TransferImpl implements _Transfer {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TransferImplToJson(
-      this,
-    );
+    return _$$TransferImplToJson(this);
   }
 }
 
 abstract class _Transfer implements Transfer {
-  factory _Transfer(
-      {required final int id,
-      required final int itemId,
-      required final int requesterId,
-      required final int? destinationId,
-      required final DateTime createdAt,
-      required final TransferStatus status}) = _$TransferImpl;
+  factory _Transfer({
+    required final int id,
+    required final int itemId,
+    required final int requesterId,
+    required final int? destinationId,
+    required final DateTime createdAt,
+    required final TransferStatus status,
+  }) = _$TransferImpl;
 
   factory _Transfer.fromJson(Map<String, dynamic> json) =
       _$TransferImpl.fromJson;

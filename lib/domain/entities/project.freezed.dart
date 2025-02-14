@@ -12,7 +12,8 @@ part of 'project.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Project _$ProjectFromJson(Map<String, dynamic> json) {
   return _Project.fromJson(json);
@@ -43,15 +44,16 @@ abstract class $ProjectCopyWith<$Res> {
   factory $ProjectCopyWith(Project value, $Res Function(Project) then) =
       _$ProjectCopyWithImpl<$Res, Project>;
   @useResult
-  $Res call(
-      {int id,
-      String name,
-      String address,
-      DateTime startDate,
-      DateTime endDate,
-      ProjectStatus status,
-      int responsibleId,
-      List<int> employeesIds});
+  $Res call({
+    int id,
+    String name,
+    String address,
+    DateTime startDate,
+    DateTime endDate,
+    ProjectStatus status,
+    int responsibleId,
+    List<int> employeesIds,
+  });
 }
 
 /// @nodoc
@@ -78,59 +80,72 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
     Object? responsibleId = null,
     Object? employeesIds = null,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String,
-      startDate: null == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      endDate: null == endDate
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as ProjectStatus,
-      responsibleId: null == responsibleId
-          ? _value.responsibleId
-          : responsibleId // ignore: cast_nullable_to_non_nullable
-              as int,
-      employeesIds: null == employeesIds
-          ? _value.employeesIds
-          : employeesIds // ignore: cast_nullable_to_non_nullable
-              as List<int>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as int,
+            name:
+                null == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String,
+            address:
+                null == address
+                    ? _value.address
+                    : address // ignore: cast_nullable_to_non_nullable
+                        as String,
+            startDate:
+                null == startDate
+                    ? _value.startDate
+                    : startDate // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+            endDate:
+                null == endDate
+                    ? _value.endDate
+                    : endDate // ignore: cast_nullable_to_non_nullable
+                        as DateTime,
+            status:
+                null == status
+                    ? _value.status
+                    : status // ignore: cast_nullable_to_non_nullable
+                        as ProjectStatus,
+            responsibleId:
+                null == responsibleId
+                    ? _value.responsibleId
+                    : responsibleId // ignore: cast_nullable_to_non_nullable
+                        as int,
+            employeesIds:
+                null == employeesIds
+                    ? _value.employeesIds
+                    : employeesIds // ignore: cast_nullable_to_non_nullable
+                        as List<int>,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$ProjectImplCopyWith<$Res> implements $ProjectCopyWith<$Res> {
   factory _$$ProjectImplCopyWith(
-          _$ProjectImpl value, $Res Function(_$ProjectImpl) then) =
-      __$$ProjectImplCopyWithImpl<$Res>;
+    _$ProjectImpl value,
+    $Res Function(_$ProjectImpl) then,
+  ) = __$$ProjectImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int id,
-      String name,
-      String address,
-      DateTime startDate,
-      DateTime endDate,
-      ProjectStatus status,
-      int responsibleId,
-      List<int> employeesIds});
+  $Res call({
+    int id,
+    String name,
+    String address,
+    DateTime startDate,
+    DateTime endDate,
+    ProjectStatus status,
+    int responsibleId,
+    List<int> employeesIds,
+  });
 }
 
 /// @nodoc
@@ -138,8 +153,9 @@ class __$$ProjectImplCopyWithImpl<$Res>
     extends _$ProjectCopyWithImpl<$Res, _$ProjectImpl>
     implements _$$ProjectImplCopyWith<$Res> {
   __$$ProjectImplCopyWithImpl(
-      _$ProjectImpl _value, $Res Function(_$ProjectImpl) _then)
-      : super(_value, _then);
+    _$ProjectImpl _value,
+    $Res Function(_$ProjectImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of Project
   /// with the given fields replaced by the non-null parameter values.
@@ -155,56 +171,66 @@ class __$$ProjectImplCopyWithImpl<$Res>
     Object? responsibleId = null,
     Object? employeesIds = null,
   }) {
-    return _then(_$ProjectImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String,
-      startDate: null == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      endDate: null == endDate
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as ProjectStatus,
-      responsibleId: null == responsibleId
-          ? _value.responsibleId
-          : responsibleId // ignore: cast_nullable_to_non_nullable
-              as int,
-      employeesIds: null == employeesIds
-          ? _value._employeesIds
-          : employeesIds // ignore: cast_nullable_to_non_nullable
-              as List<int>,
-    ));
+    return _then(
+      _$ProjectImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as int,
+        name:
+            null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+        address:
+            null == address
+                ? _value.address
+                : address // ignore: cast_nullable_to_non_nullable
+                    as String,
+        startDate:
+            null == startDate
+                ? _value.startDate
+                : startDate // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        endDate:
+            null == endDate
+                ? _value.endDate
+                : endDate // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        status:
+            null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                    as ProjectStatus,
+        responsibleId:
+            null == responsibleId
+                ? _value.responsibleId
+                : responsibleId // ignore: cast_nullable_to_non_nullable
+                    as int,
+        employeesIds:
+            null == employeesIds
+                ? _value._employeesIds
+                : employeesIds // ignore: cast_nullable_to_non_nullable
+                    as List<int>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$ProjectImpl implements _Project {
-  _$ProjectImpl(
-      {required this.id,
-      required this.name,
-      required this.address,
-      required this.startDate,
-      required this.endDate,
-      required this.status,
-      required this.responsibleId,
-      final List<int> employeesIds = const []})
-      : _employeesIds = employeesIds;
+  _$ProjectImpl({
+    required this.id,
+    required this.name,
+    required this.address,
+    required this.startDate,
+    required this.endDate,
+    required this.status,
+    required this.responsibleId,
+    final List<int> employeesIds = const [],
+  }) : _employeesIds = employeesIds;
 
   factory _$ProjectImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProjectImplFromJson(json);
@@ -251,22 +277,25 @@ class _$ProjectImpl implements _Project {
             (identical(other.status, status) || other.status == status) &&
             (identical(other.responsibleId, responsibleId) ||
                 other.responsibleId == responsibleId) &&
-            const DeepCollectionEquality()
-                .equals(other._employeesIds, _employeesIds));
+            const DeepCollectionEquality().equals(
+              other._employeesIds,
+              _employeesIds,
+            ));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      name,
-      address,
-      startDate,
-      endDate,
-      status,
-      responsibleId,
-      const DeepCollectionEquality().hash(_employeesIds));
+    runtimeType,
+    id,
+    name,
+    address,
+    startDate,
+    endDate,
+    status,
+    responsibleId,
+    const DeepCollectionEquality().hash(_employeesIds),
+  );
 
   /// Create a copy of Project
   /// with the given fields replaced by the non-null parameter values.
@@ -278,22 +307,21 @@ class _$ProjectImpl implements _Project {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ProjectImplToJson(
-      this,
-    );
+    return _$$ProjectImplToJson(this);
   }
 }
 
 abstract class _Project implements Project {
-  factory _Project(
-      {required final int id,
-      required final String name,
-      required final String address,
-      required final DateTime startDate,
-      required final DateTime endDate,
-      required final ProjectStatus status,
-      required final int responsibleId,
-      final List<int> employeesIds}) = _$ProjectImpl;
+  factory _Project({
+    required final int id,
+    required final String name,
+    required final String address,
+    required final DateTime startDate,
+    required final DateTime endDate,
+    required final ProjectStatus status,
+    required final int responsibleId,
+    final List<int> employeesIds,
+  }) = _$ProjectImpl;
 
   factory _Project.fromJson(Map<String, dynamic> json) = _$ProjectImpl.fromJson;
 

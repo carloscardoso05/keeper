@@ -12,7 +12,8 @@ part of 'items_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$ItemsState {
@@ -21,64 +22,59 @@ mixin _$ItemsState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            ResultDart<({Map<int, User> holders, Map<int, Item> items}),
-                    Exception>
-                data)
-        loaded,
-  }) =>
-      throw _privateConstructorUsedError;
+      ResultDart<({Map<int, User> holders, Map<int, Item> items}), Exception>
+      data,
+    )
+    loaded,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(
-            ResultDart<({Map<int, User> holders, Map<int, Item> items}),
-                    Exception>
-                data)?
-        loaded,
-  }) =>
-      throw _privateConstructorUsedError;
+      ResultDart<({Map<int, User> holders, Map<int, Item> items}), Exception>
+      data,
+    )?
+    loaded,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
-            ResultDart<({Map<int, User> holders, Map<int, Item> items}),
-                    Exception>
-                data)?
-        loaded,
+      ResultDart<({Map<int, User> holders, Map<int, Item> items}), Exception>
+      data,
+    )?
+    loaded,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ItemsStateCopyWith<$Res> {
   factory $ItemsStateCopyWith(
-          ItemsState value, $Res Function(ItemsState) then) =
-      _$ItemsStateCopyWithImpl<$Res, ItemsState>;
+    ItemsState value,
+    $Res Function(ItemsState) then,
+  ) = _$ItemsStateCopyWithImpl<$Res, ItemsState>;
 }
 
 /// @nodoc
@@ -98,8 +94,9 @@ class _$ItemsStateCopyWithImpl<$Res, $Val extends ItemsState>
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -107,8 +104,9 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$ItemsStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ItemsState
   /// with the given fields replaced by the non-null parameter values.
@@ -139,10 +137,10 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            ResultDart<({Map<int, User> holders, Map<int, Item> items}),
-                    Exception>
-                data)
-        loaded,
+      ResultDart<({Map<int, User> holders, Map<int, Item> items}), Exception>
+      data,
+    )
+    loaded,
   }) {
     return initial();
   }
@@ -153,10 +151,10 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(
-            ResultDart<({Map<int, User> holders, Map<int, Item> items}),
-                    Exception>
-                data)?
-        loaded,
+      ResultDart<({Map<int, User> holders, Map<int, Item> items}), Exception>
+      data,
+    )?
+    loaded,
   }) {
     return initial?.call();
   }
@@ -167,10 +165,10 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
-            ResultDart<({Map<int, User> holders, Map<int, Item> items}),
-                    Exception>
-                data)?
-        loaded,
+      ResultDart<({Map<int, User> holders, Map<int, Item> items}), Exception>
+      data,
+    )?
+    loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -221,8 +219,9 @@ abstract class _Initial implements ItemsState {
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+    _$LoadingImpl value,
+    $Res Function(_$LoadingImpl) then,
+  ) = __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -230,8 +229,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$ItemsStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
+    _$LoadingImpl _value,
+    $Res Function(_$LoadingImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ItemsState
   /// with the given fields replaced by the non-null parameter values.
@@ -262,10 +262,10 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            ResultDart<({Map<int, User> holders, Map<int, Item> items}),
-                    Exception>
-                data)
-        loaded,
+      ResultDart<({Map<int, User> holders, Map<int, Item> items}), Exception>
+      data,
+    )
+    loaded,
   }) {
     return loading();
   }
@@ -276,10 +276,10 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(
-            ResultDart<({Map<int, User> holders, Map<int, Item> items}),
-                    Exception>
-                data)?
-        loaded,
+      ResultDart<({Map<int, User> holders, Map<int, Item> items}), Exception>
+      data,
+    )?
+    loaded,
   }) {
     return loading?.call();
   }
@@ -290,10 +290,10 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
-            ResultDart<({Map<int, User> holders, Map<int, Item> items}),
-                    Exception>
-                data)?
-        loaded,
+      ResultDart<({Map<int, User> holders, Map<int, Item> items}), Exception>
+      data,
+    )?
+    loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -344,12 +344,14 @@ abstract class _Loading implements ItemsState {
 /// @nodoc
 abstract class _$$LoadedImplCopyWith<$Res> {
   factory _$$LoadedImplCopyWith(
-          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
-      __$$LoadedImplCopyWithImpl<$Res>;
+    _$LoadedImpl value,
+    $Res Function(_$LoadedImpl) then,
+  ) = __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {ResultDart<({Map<int, User> holders, Map<int, Item> items}), Exception>
-          data});
+  $Res call({
+    ResultDart<({Map<int, User> holders, Map<int, Item> items}), Exception>
+    data,
+  });
 }
 
 /// @nodoc
@@ -357,23 +359,26 @@ class __$$LoadedImplCopyWithImpl<$Res>
     extends _$ItemsStateCopyWithImpl<$Res, _$LoadedImpl>
     implements _$$LoadedImplCopyWith<$Res> {
   __$$LoadedImplCopyWithImpl(
-      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
-      : super(_value, _then);
+    _$LoadedImpl _value,
+    $Res Function(_$LoadedImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ItemsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$LoadedImpl(
-      null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ResultDart<({Map<int, User> holders, Map<int, Item> items}),
-                  Exception>,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$LoadedImpl(
+        null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                as ResultDart<
+                  ({Map<int, User> holders, Map<int, Item> items}),
+                  Exception
+                >,
+      ),
+    );
   }
 }
 
@@ -384,7 +389,7 @@ class _$LoadedImpl implements _Loaded {
 
   @override
   final ResultDart<({Map<int, User> holders, Map<int, Item> items}), Exception>
-      data;
+  data;
 
   @override
   String toString() {
@@ -416,10 +421,10 @@ class _$LoadedImpl implements _Loaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            ResultDart<({Map<int, User> holders, Map<int, Item> items}),
-                    Exception>
-                data)
-        loaded,
+      ResultDart<({Map<int, User> holders, Map<int, Item> items}), Exception>
+      data,
+    )
+    loaded,
   }) {
     return loaded(data);
   }
@@ -430,10 +435,10 @@ class _$LoadedImpl implements _Loaded {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(
-            ResultDart<({Map<int, User> holders, Map<int, Item> items}),
-                    Exception>
-                data)?
-        loaded,
+      ResultDart<({Map<int, User> holders, Map<int, Item> items}), Exception>
+      data,
+    )?
+    loaded,
   }) {
     return loaded?.call(data);
   }
@@ -444,10 +449,10 @@ class _$LoadedImpl implements _Loaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
-            ResultDart<({Map<int, User> holders, Map<int, Item> items}),
-                    Exception>
-                data)?
-        loaded,
+      ResultDart<({Map<int, User> holders, Map<int, Item> items}), Exception>
+      data,
+    )?
+    loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -493,12 +498,15 @@ class _$LoadedImpl implements _Loaded {
 
 abstract class _Loaded implements ItemsState {
   const factory _Loaded(
-      final ResultDart<({Map<int, User> holders, Map<int, Item> items}),
-              Exception>
-          data) = _$LoadedImpl;
+    final ResultDart<
+      ({Map<int, User> holders, Map<int, Item> items}),
+      Exception
+    >
+    data,
+  ) = _$LoadedImpl;
 
   ResultDart<({Map<int, User> holders, Map<int, Item> items}), Exception>
-      get data;
+  get data;
 
   /// Create a copy of ItemsState
   /// with the given fields replaced by the non-null parameter values.

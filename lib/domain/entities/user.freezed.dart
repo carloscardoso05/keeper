@@ -12,7 +12,8 @@ part of 'user.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 User _$UserFromJson(Map<String, dynamic> json) {
   return _User.fromJson(json);
@@ -40,8 +41,13 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call(
-      {int id, String name, UserType type, List<int> itemsIds, int? projectId});
+  $Res call({
+    int id,
+    String name,
+    UserType type,
+    List<int> itemsIds,
+    int? projectId,
+  });
 }
 
 /// @nodoc
@@ -65,40 +71,54 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? itemsIds = null,
     Object? projectId = freezed,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as UserType,
-      itemsIds: null == itemsIds
-          ? _value.itemsIds
-          : itemsIds // ignore: cast_nullable_to_non_nullable
-              as List<int>,
-      projectId: freezed == projectId
-          ? _value.projectId
-          : projectId // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as int,
+            name:
+                null == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String,
+            type:
+                null == type
+                    ? _value.type
+                    : type // ignore: cast_nullable_to_non_nullable
+                        as UserType,
+            itemsIds:
+                null == itemsIds
+                    ? _value.itemsIds
+                    : itemsIds // ignore: cast_nullable_to_non_nullable
+                        as List<int>,
+            projectId:
+                freezed == projectId
+                    ? _value.projectId
+                    : projectId // ignore: cast_nullable_to_non_nullable
+                        as int?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$$UserImplCopyWith(
-          _$UserImpl value, $Res Function(_$UserImpl) then) =
-      __$$UserImplCopyWithImpl<$Res>;
+    _$UserImpl value,
+    $Res Function(_$UserImpl) then,
+  ) = __$$UserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int id, String name, UserType type, List<int> itemsIds, int? projectId});
+  $Res call({
+    int id,
+    String name,
+    UserType type,
+    List<int> itemsIds,
+    int? projectId,
+  });
 }
 
 /// @nodoc
@@ -106,7 +126,7 @@ class __$$UserImplCopyWithImpl<$Res>
     extends _$UserCopyWithImpl<$Res, _$UserImpl>
     implements _$$UserImplCopyWith<$Res> {
   __$$UserImplCopyWithImpl(_$UserImpl _value, $Res Function(_$UserImpl) _then)
-      : super(_value, _then);
+    : super(_value, _then);
 
   /// Create a copy of User
   /// with the given fields replaced by the non-null parameter values.
@@ -119,41 +139,48 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? itemsIds = null,
     Object? projectId = freezed,
   }) {
-    return _then(_$UserImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as UserType,
-      itemsIds: null == itemsIds
-          ? _value._itemsIds
-          : itemsIds // ignore: cast_nullable_to_non_nullable
-              as List<int>,
-      projectId: freezed == projectId
-          ? _value.projectId
-          : projectId // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
+    return _then(
+      _$UserImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as int,
+        name:
+            null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+        type:
+            null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                    as UserType,
+        itemsIds:
+            null == itemsIds
+                ? _value._itemsIds
+                : itemsIds // ignore: cast_nullable_to_non_nullable
+                    as List<int>,
+        projectId:
+            freezed == projectId
+                ? _value.projectId
+                : projectId // ignore: cast_nullable_to_non_nullable
+                    as int?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$UserImpl implements _User {
-  _$UserImpl(
-      {required this.id,
-      required this.name,
-      required this.type,
-      final List<int> itemsIds = const [],
-      this.projectId})
-      : _itemsIds = itemsIds;
+  _$UserImpl({
+    required this.id,
+    required this.name,
+    required this.type,
+    final List<int> itemsIds = const [],
+    this.projectId,
+  }) : _itemsIds = itemsIds;
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserImplFromJson(json);
@@ -196,8 +223,14 @@ class _$UserImpl implements _User {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, type,
-      const DeepCollectionEquality().hash(_itemsIds), projectId);
+  int get hashCode => Object.hash(
+    runtimeType,
+    id,
+    name,
+    type,
+    const DeepCollectionEquality().hash(_itemsIds),
+    projectId,
+  );
 
   /// Create a copy of User
   /// with the given fields replaced by the non-null parameter values.
@@ -209,19 +242,18 @@ class _$UserImpl implements _User {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UserImplToJson(
-      this,
-    );
+    return _$$UserImplToJson(this);
   }
 }
 
 abstract class _User implements User {
-  factory _User(
-      {required final int id,
-      required final String name,
-      required final UserType type,
-      final List<int> itemsIds,
-      final int? projectId}) = _$UserImpl;
+  factory _User({
+    required final int id,
+    required final String name,
+    required final UserType type,
+    final List<int> itemsIds,
+    final int? projectId,
+  }) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 

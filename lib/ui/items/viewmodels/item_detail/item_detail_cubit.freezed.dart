@@ -12,7 +12,8 @@ part of 'item_detail_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$ItemDetailState {
@@ -20,52 +21,49 @@ mixin _$ItemDetailState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(
-            ResultDart<({User? holder, Item item}), Exception> result)
-        loaded,
-  }) =>
-      throw _privateConstructorUsedError;
+      ResultDart<({User? holder, Item item}), Exception> result,
+    )
+    loaded,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(
-            ResultDart<({User? holder, Item item}), Exception> result)?
-        loaded,
-  }) =>
-      throw _privateConstructorUsedError;
+      ResultDart<({User? holder, Item item}), Exception> result,
+    )?
+    loaded,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(ResultDart<({User? holder, Item item}), Exception> result)?
-        loaded,
+    loaded,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ItemDetailStateCopyWith<$Res> {
   factory $ItemDetailStateCopyWith(
-          ItemDetailState value, $Res Function(ItemDetailState) then) =
-      _$ItemDetailStateCopyWithImpl<$Res, ItemDetailState>;
+    ItemDetailState value,
+    $Res Function(ItemDetailState) then,
+  ) = _$ItemDetailStateCopyWithImpl<$Res, ItemDetailState>;
 }
 
 /// @nodoc
@@ -85,8 +83,9 @@ class _$ItemDetailStateCopyWithImpl<$Res, $Val extends ItemDetailState>
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+    _$LoadingImpl value,
+    $Res Function(_$LoadingImpl) then,
+  ) = __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -94,8 +93,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$ItemDetailStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
+    _$LoadingImpl _value,
+    $Res Function(_$LoadingImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ItemDetailState
   /// with the given fields replaced by the non-null parameter values.
@@ -125,8 +125,9 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(
-            ResultDart<({User? holder, Item item}), Exception> result)
-        loaded,
+      ResultDart<({User? holder, Item item}), Exception> result,
+    )
+    loaded,
   }) {
     return loading();
   }
@@ -136,8 +137,9 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(
-            ResultDart<({User? holder, Item item}), Exception> result)?
-        loaded,
+      ResultDart<({User? holder, Item item}), Exception> result,
+    )?
+    loaded,
   }) {
     return loading?.call();
   }
@@ -147,7 +149,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(ResultDart<({User? holder, Item item}), Exception> result)?
-        loaded,
+    loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -195,8 +197,9 @@ abstract class _Loading implements ItemDetailState {
 /// @nodoc
 abstract class _$$LoadedImplCopyWith<$Res> {
   factory _$$LoadedImplCopyWith(
-          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
-      __$$LoadedImplCopyWithImpl<$Res>;
+    _$LoadedImpl value,
+    $Res Function(_$LoadedImpl) then,
+  ) = __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ResultDart<({User? holder, Item item}), Exception> result});
 }
@@ -206,22 +209,23 @@ class __$$LoadedImplCopyWithImpl<$Res>
     extends _$ItemDetailStateCopyWithImpl<$Res, _$LoadedImpl>
     implements _$$LoadedImplCopyWith<$Res> {
   __$$LoadedImplCopyWithImpl(
-      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
-      : super(_value, _then);
+    _$LoadedImpl _value,
+    $Res Function(_$LoadedImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ItemDetailState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? result = null,
-  }) {
-    return _then(_$LoadedImpl(
-      null == result
-          ? _value.result
-          : result // ignore: cast_nullable_to_non_nullable
-              as ResultDart<({User? holder, Item item}), Exception>,
-    ));
+  $Res call({Object? result = null}) {
+    return _then(
+      _$LoadedImpl(
+        null == result
+            ? _value.result
+            : result // ignore: cast_nullable_to_non_nullable
+                as ResultDart<({User? holder, Item item}), Exception>,
+      ),
+    );
   }
 }
 
@@ -262,8 +266,9 @@ class _$LoadedImpl implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(
-            ResultDart<({User? holder, Item item}), Exception> result)
-        loaded,
+      ResultDart<({User? holder, Item item}), Exception> result,
+    )
+    loaded,
   }) {
     return loaded(result);
   }
@@ -273,8 +278,9 @@ class _$LoadedImpl implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(
-            ResultDart<({User? holder, Item item}), Exception> result)?
-        loaded,
+      ResultDart<({User? holder, Item item}), Exception> result,
+    )?
+    loaded,
   }) {
     return loaded?.call(result);
   }
@@ -284,7 +290,7 @@ class _$LoadedImpl implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(ResultDart<({User? holder, Item item}), Exception> result)?
-        loaded,
+    loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -327,8 +333,8 @@ class _$LoadedImpl implements _Loaded {
 
 abstract class _Loaded implements ItemDetailState {
   const factory _Loaded(
-          final ResultDart<({User? holder, Item item}), Exception> result) =
-      _$LoadedImpl;
+    final ResultDart<({User? holder, Item item}), Exception> result,
+  ) = _$LoadedImpl;
 
   ResultDart<({User? holder, Item item}), Exception> get result;
 

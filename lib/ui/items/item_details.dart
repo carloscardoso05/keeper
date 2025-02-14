@@ -40,6 +40,7 @@ class ItemDetails extends StatelessWidget {
                         context: context,
                         builder: (context) => TransferItemDialog(
                           itemData: (item: item, holder: user),
+                          employees: ,
                         ),
                       );
                     },
