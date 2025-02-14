@@ -47,7 +47,7 @@ class ItemsCubit extends Cubit<ItemsState> with Log {
     emit(ItemsState.loading());
     result = await result
         .toAsyncResult()
-        .flatMap((itemsData) => _itemRepository.save(item, id).map(
+        .flatMap((itemsData) => _itemRepository.save(item).map(
               (newItem) => itemsData..items[newItem.id] = newItem,
             ));
     emit(ItemsState.loaded(result));

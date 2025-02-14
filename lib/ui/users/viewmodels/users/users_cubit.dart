@@ -33,7 +33,7 @@ class UsersCubit extends Cubit<UsersState> {
     emit(UsersState.loading());
     result = await result
         .toAsyncResult()
-        .flatMap((users) => _userRepository.save(user, id).map(
+        .flatMap((users) => _userRepository.save(user).map(
               (newUser) => users..[newUser.id] = newUser,
             ));
     emit(UsersState.loaded(result));

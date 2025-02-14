@@ -25,8 +25,8 @@ class DriftItemRepository implements ItemRepository {
   }
 
   @override
-  AsyncResult<Item> save(ItemDto value, [int? id]) {
-    return _service.save(toModel(value), id);
+  AsyncResult<Item> save(ItemDto value) {
+    return _service.save(toModel(value), value.id);
   }
 
   @override

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:keeper/domain/entities/user.dart';
+import 'package:keeper/ui/items/viewmodels/item_detail/item_detail_cubit.dart';
 import 'package:keeper/ui/items/viewmodels/transfer_item/transfer_item_cubit.dart';
 
 class TransferItemDialog extends StatefulWidget {
@@ -13,7 +14,23 @@ class TransferItemDialog extends StatefulWidget {
 }
 
 class _TransferItemDialogState extends State<TransferItemDialog> {
-  User? newHolder;
+  final ValueNotifier<User?> newHolder = ValueNotifier(null);
+
+  @override
+  void initState() {
+    super.initState();
+    initNewHolder();
+  }
+
+  void initNewHolder() {
+    widget.cubit.stream.listen((state) {
+      state.whenOrNull(
+        loaded: (data) {
+          newHolder.value = data.employees[data.item.holderId];
+        },
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,41 +41,55 @@ class _TransferItemDialogState extends State<TransferItemDialog> {
         builder: (context, state) {
           return state.when(
             loading: () => const CircularProgressIndicator(),
-            loaded:
-                (data) {
-                  final holder = data.employees[data.item.holderId];
-                  return Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Text('Select employee to transfer item to:'),
-                    DropdownButton<User>(
-                      value: data.employees[data],
-                      items: [
-                        for (final employee in widget.employees.values)
-                          DropdownMenuItem<User>(
-                            value: employee,
-                            child: Text(employee.name),
+            error: (error) => Text(error.toString()),
+            loaded: (data) {
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text('Select employee to transfer item to:'),
+                  ListenableBuilder(
+                    listenable: newHolder,
+                    builder: (context, _) {
+                      return Row(
+                        children: [
+                          DropdownButton<User>(
+                            value: newHolder.value,
+                            items: [
+                              for (final employee in data.employees.values)
+                                DropdownMenuItem<User>(
+                                  value: employee,
+                                  child: Text(employee.name),
+                                ),
+                            ],
+                            onChanged: (value) => newHolder.value = value,
                           ),
-                      ],
-                      onChanged: (value) => setState(() => newHolder = value),
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.close),
-                      onPressed: () => setState(() => newHolder = null),
-                    ),
-                  ],
-                );
-                },
+                          IconButton(
+                            icon: Icon(Icons.close),
+                            onPressed: () => newHolder.value = null,
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                ],
+              );
+            },
           );
         },
       ),
       actions: [
         TextButton(
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => Navigator.of(context).pop(null),
           child: const Text('Cancel'),
         ),
         FilledButton(
-          onPressed: () => Navigator.of(context).pop(newHolder),
+          onPressed: () async {
+            await widget.cubit.transferItem(newHolder.value);
+            if (!context.mounted) return;
+            Navigator.of(
+              context,
+            ).pop<ItemData>((holder: newHolder.value, item: widget.cubit.item));
+          },
           child: const Text('Transferir'),
         ),
       ],
