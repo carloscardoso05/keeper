@@ -1,6 +1,5 @@
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
-import 'package:keeper/data/services/drift/local_db.steps.dart';
 import 'package:keeper/domain/entities/project.dart';
 import 'package:keeper/domain/entities/user.dart';
 import 'package:keeper/main.dart';
@@ -17,7 +16,7 @@ class LocalDb extends _$LocalDb {
   LocalDb() : super(_openConnection());
 
   @override
-  final schemaVersion = 2;
+  final schemaVersion = 1;
 
   static QueryExecutor _openConnection() {
     getApplicationSupportDirectory().then(
@@ -36,14 +35,5 @@ class LocalDb extends _$LocalDb {
           getIt.get<Logger>().d('Database connection opened on $directory'),
     );
     return db;
-  }
-
-  @override
-  MigrationStrategy get migration {
-    return MigrationStrategy(
-      onUpgrade: stepByStep(
-        from1To2: (m, schema) => m.dropColumn(schema.itemTable, 'properties'),
-      ),
-    );
   }
 }
