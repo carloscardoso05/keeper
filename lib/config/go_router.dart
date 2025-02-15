@@ -8,7 +8,7 @@ import 'package:keeper/ui/items/viewmodels/items/items_cubit.dart';
 import 'package:keeper/ui/users/users_page.dart';
 import 'package:keeper/ui/users/viewmodels/user_detail/user_detail_cubit.dart';
 import 'package:keeper/ui/users/viewmodels/users/users_cubit.dart';
-import 'package:keeper/ui/users/widgets/user_detail_page.dart';
+import 'package:keeper/ui/users/user_detail_page.dart';
 
 final GoRouter goRouter = GoRouter(
   routes: [
