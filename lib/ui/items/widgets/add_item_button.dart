@@ -11,6 +11,7 @@ class AddItemButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      tooltip: 'Adicionar item',
       onPressed: () async {
         final item = await showDialog<ItemDto>(
           context: context,

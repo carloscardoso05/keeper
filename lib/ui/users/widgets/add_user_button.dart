@@ -11,6 +11,7 @@ class AddUserButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      tooltip: 'Adicionar usuário',
       onPressed: () async {
         final user = await showDialog<UserDto>(
           context: context,

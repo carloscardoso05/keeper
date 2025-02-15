@@ -9,6 +9,7 @@ class KeeperApp extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: goRouter,
       title: 'Keeper',
+      debugShowCheckedModeBanner: false,
     );
   }
 }

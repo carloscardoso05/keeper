@@ -16,7 +16,10 @@ class TransferItemButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FilledButton(
+    return FilledButton.icon(
+      icon: Icon(Icons.move_up),
+      label: Text('Transferir item'),
+      iconAlignment: IconAlignment.end,
       onPressed: () async {
         final data = await showDialog<ItemData>(
           context: context,
@@ -27,7 +30,6 @@ class TransferItemButton extends StatelessWidget {
           cubit.refresh(data);
         }
       },
-      child: Text('Transferir item'),
     );
   }
 }
