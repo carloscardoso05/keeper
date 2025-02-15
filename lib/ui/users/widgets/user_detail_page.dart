@@ -23,6 +23,8 @@ class UserDetailPage extends StatelessWidget {
                     children: [
                       Text('Name: ${data.user.name}'),
                       Text('Tipo: ${data.user.type.getName()}'),
+                      Text('Itens'),
+                      for (final item in data.items.values) Text(item.name),
                     ],
                   ),
             ),
