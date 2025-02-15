@@ -42,7 +42,7 @@ class _KeeperNavigationBarState extends State<KeeperNavigationBar> {
     return NavigationBar(
       selectedIndex: index,
       destinations: destinations.map((d) => d.widget).toList(),
-      onDestinationSelected: (i) => context.push(destinations[i].path),
+      onDestinationSelected: (i) => context.go(destinations[i].path),
     );
   }
 }
