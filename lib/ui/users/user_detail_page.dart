@@ -11,7 +11,7 @@ class UserDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('User Detail')),
+      appBar: AppBar(),
       body: BlocBuilder<UserDetailCubit, UserDetailState>(
         bloc: cubit,
         builder:

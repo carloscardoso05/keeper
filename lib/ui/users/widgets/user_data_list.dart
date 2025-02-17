@@ -9,13 +9,25 @@ class UserDataList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text('Name: ${data.user.name}'),
-        Text('Tipo: ${data.user.type.getName()}'),
-        Text('Itens'),
-        for (final item in data.items.values) Text(item.name),
-      ],
+    return Center(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            data.user.name,
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          if (data.user.projectId == null)
+            Text('Não alocado para nenhum projeto'),
+          if (data.user.projectId != null)
+            Text('Alocado para o projeto: ${data.user.projectId}'),
+          Text('Tipo: ${data.user.type.getName()}'),
+          if (data.items.values.isNotEmpty) ...[
+            Text('Possui os seguintes itens'),
+            for (final item in data.items.values) Text('·  ${item.name}'),
+          ],
+        ],
+      ),
     );
   }
 }

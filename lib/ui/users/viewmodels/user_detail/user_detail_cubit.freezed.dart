@@ -20,19 +20,28 @@ mixin _$UserDetailState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(({Map<int, Item> items, User user}) data) loaded,
+    required TResult Function(
+      ({Map<int, Item> items, Project? project, User user}) data,
+    )
+    loaded,
     required TResult Function(Exception error) error,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(({Map<int, Item> items, User user}) data)? loaded,
+    TResult? Function(
+      ({Map<int, Item> items, Project? project, User user}) data,
+    )?
+    loaded,
     TResult? Function(Exception error)? error,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(({Map<int, Item> items, User user}) data)? loaded,
+    TResult Function(
+      ({Map<int, Item> items, Project? project, User user}) data,
+    )?
+    loaded,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -123,7 +132,10 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(({Map<int, Item> items, User user}) data) loaded,
+    required TResult Function(
+      ({Map<int, Item> items, Project? project, User user}) data,
+    )
+    loaded,
     required TResult Function(Exception error) error,
   }) {
     return loading();
@@ -133,7 +145,10 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(({Map<int, Item> items, User user}) data)? loaded,
+    TResult? Function(
+      ({Map<int, Item> items, Project? project, User user}) data,
+    )?
+    loaded,
     TResult? Function(Exception error)? error,
   }) {
     return loading?.call();
@@ -143,7 +158,10 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(({Map<int, Item> items, User user}) data)? loaded,
+    TResult Function(
+      ({Map<int, Item> items, Project? project, User user}) data,
+    )?
+    loaded,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
@@ -199,7 +217,7 @@ abstract class _$$LoadedImplCopyWith<$Res> {
     $Res Function(_$LoadedImpl) then,
   ) = __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({({Map<int, Item> items, User user}) data});
+  $Res call({({Map<int, Item> items, Project? project, User user}) data});
 }
 
 /// @nodoc
@@ -221,7 +239,7 @@ class __$$LoadedImplCopyWithImpl<$Res>
         null == data
             ? _value.data
             : data // ignore: cast_nullable_to_non_nullable
-                as ({Map<int, Item> items, User user}),
+                as ({Map<int, Item> items, Project? project, User user}),
       ),
     );
   }
@@ -233,7 +251,7 @@ class _$LoadedImpl implements _Loaded {
   const _$LoadedImpl(this.data);
 
   @override
-  final ({Map<int, Item> items, User user}) data;
+  final ({Map<int, Item> items, Project? project, User user}) data;
 
   @override
   String toString() {
@@ -263,7 +281,10 @@ class _$LoadedImpl implements _Loaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(({Map<int, Item> items, User user}) data) loaded,
+    required TResult Function(
+      ({Map<int, Item> items, Project? project, User user}) data,
+    )
+    loaded,
     required TResult Function(Exception error) error,
   }) {
     return loaded(data);
@@ -273,7 +294,10 @@ class _$LoadedImpl implements _Loaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(({Map<int, Item> items, User user}) data)? loaded,
+    TResult? Function(
+      ({Map<int, Item> items, Project? project, User user}) data,
+    )?
+    loaded,
     TResult? Function(Exception error)? error,
   }) {
     return loaded?.call(data);
@@ -283,7 +307,10 @@ class _$LoadedImpl implements _Loaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(({Map<int, Item> items, User user}) data)? loaded,
+    TResult Function(
+      ({Map<int, Item> items, Project? project, User user}) data,
+    )?
+    loaded,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
@@ -329,10 +356,11 @@ class _$LoadedImpl implements _Loaded {
 }
 
 abstract class _Loaded implements UserDetailState {
-  const factory _Loaded(final ({Map<int, Item> items, User user}) data) =
-      _$LoadedImpl;
+  const factory _Loaded(
+    final ({Map<int, Item> items, Project? project, User user}) data,
+  ) = _$LoadedImpl;
 
-  ({Map<int, Item> items, User user}) get data;
+  ({Map<int, Item> items, Project? project, User user}) get data;
 
   /// Create a copy of UserDetailState
   /// with the given fields replaced by the non-null parameter values.
@@ -412,7 +440,10 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(({Map<int, Item> items, User user}) data) loaded,
+    required TResult Function(
+      ({Map<int, Item> items, Project? project, User user}) data,
+    )
+    loaded,
     required TResult Function(Exception error) error,
   }) {
     return error(this.error);
@@ -422,7 +453,10 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(({Map<int, Item> items, User user}) data)? loaded,
+    TResult? Function(
+      ({Map<int, Item> items, Project? project, User user}) data,
+    )?
+    loaded,
     TResult? Function(Exception error)? error,
   }) {
     return error?.call(this.error);
@@ -432,7 +466,10 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(({Map<int, Item> items, User user}) data)? loaded,
+    TResult Function(
+      ({Map<int, Item> items, Project? project, User user}) data,
+    )?
+    loaded,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {

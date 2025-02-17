@@ -1,6 +1,6 @@
 part of 'user_detail_cubit.dart';
 
-typedef UserData = ({User user, Map<int, Item> items});
+typedef UserData = ({User user, Map<int, Item> items, Project? project});
 
 @freezed
 class UserDetailState with _$UserDetailState {

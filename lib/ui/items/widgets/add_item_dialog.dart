@@ -27,23 +27,29 @@ class _AddItemDialogState extends State<AddItemDialog> {
             validator: validator.byField(item, 'name'),
             decoration: InputDecoration(
               labelText: 'Nome',
+              border: OutlineInputBorder(),
             ),
           ),
+          const SizedBox(height: 15),
           TextFormField(
             onChanged: (value) => setState(() => item.assetCode = value),
             autovalidateMode: AutovalidateMode.onUserInteraction,
             validator: validator.byField(item, 'assetCode'),
             decoration: InputDecoration(
               labelText: 'Código de patrimônio',
+              border: OutlineInputBorder(),
             ),
           ),
+          const SizedBox(height: 15),
           TextFormField(
             onChanged: (value) => setState(() => item.description = value),
             autovalidateMode: AutovalidateMode.onUserInteraction,
             maxLines: null,
+            minLines: 4,
             validator: validator.byField(item, 'description'),
             decoration: InputDecoration(
               labelText: 'Descrição',
+              border: OutlineInputBorder(),
             ),
           ),
         ],
@@ -54,9 +60,10 @@ class _AddItemDialogState extends State<AddItemDialog> {
           child: Text('Cancelar'),
         ),
         TextButton(
-          onPressed: validator.validate(item).isValid
-              ? () => Navigator.of(context).pop(item)
-              : null,
+          onPressed:
+              validator.validate(item).isValid
+                  ? () => Navigator.of(context).pop(item)
+                  : null,
           child: Text('Adicionar'),
         ),
       ],
