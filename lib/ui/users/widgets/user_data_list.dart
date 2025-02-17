@@ -20,7 +20,7 @@ class UserDataList extends StatelessWidget {
           if (data.user.projectId == null)
             Text('Não alocado para nenhum projeto'),
           if (data.user.projectId != null)
-            Text('Alocado para o projeto: ${data.user.projectId}'),
+            Text('Alocado para o projeto: ${data.project!.name}'),
           Text('Tipo: ${data.user.type.getName()}'),
           if (data.items.values.isNotEmpty) ...[
             Text('Possui os seguintes itens'),

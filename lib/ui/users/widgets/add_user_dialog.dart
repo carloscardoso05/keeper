@@ -29,17 +29,19 @@ class _AddUserDialogState extends State<AddUserDialog> {
             validator: validator.byField(user, 'name'),
             decoration: InputDecoration(
               labelText: 'Nome',
+              border: OutlineInputBorder(),
             ),
           ),
           const SizedBox(height: 20),
-          DropdownButton(
+          DropdownButtonFormField(
+            decoration: InputDecoration(
+              labelText: 'Tipo',
+              border: OutlineInputBorder(),
+            ),
             icon: user.type.getIcon(),
             items: [
               for (final type in UserType.values)
-                DropdownMenuItem(
-                  value: type,
-                  child: Text(type.getName()),
-                ),
+                DropdownMenuItem(value: type, child: Text(type.getName())),
             ],
             value: user.type,
             onChanged: (value) => setState(() => user.type = value!),
@@ -52,9 +54,10 @@ class _AddUserDialogState extends State<AddUserDialog> {
           child: Text('Cancelar'),
         ),
         TextButton(
-          onPressed: validator.validate(user).isValid
-              ? () => Navigator.of(context).pop(user)
-              : null,
+          onPressed:
+              validator.validate(user).isValid
+                  ? () => Navigator.of(context).pop(user)
+                  : null,
           child: Text('Adicionar'),
         ),
       ],
