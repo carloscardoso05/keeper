@@ -26,6 +26,13 @@ class _KeeperNavigationBarState extends State<KeeperNavigationBar> {
       ),
       path: Routes.items,
     ),
+    (
+      widget: NavigationDestination(
+        icon: Icon(Icons.domain),
+        label: 'Projetos',
+      ),
+      path: Routes.projects,
+    ),
   ];
 
   late int index;

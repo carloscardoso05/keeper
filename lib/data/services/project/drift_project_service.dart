@@ -25,10 +25,9 @@ class DriftProjectService {
   AsyncResult<Project> get(int id) async {
     try {
       return (await manager
-              .filter((item) => item.id(id))
-              .getSingle()
-              .then(toModel))
-          .toSuccess();
+          .filter((item) => item.id(id))
+          .getSingle()
+          .then(toModel)).toSuccess();
     } on Exception catch (e) {
       return Failure(e);
     }
@@ -36,9 +35,9 @@ class DriftProjectService {
 
   AsyncResult<Map<int, Project>> getAll() async {
     try {
-      return (await manager.get().then((items) =>
-              Map<int, Project>.fromEntries(items.map(_entryFromDb))))
-          .toSuccess();
+      return (await manager.get().then(
+        (items) => Map<int, Project>.fromEntries(items.map(_entryFromDb)),
+      )).toSuccess();
     } on Exception catch (e) {
       return Failure(e);
     }
@@ -64,11 +63,15 @@ class DriftProjectService {
     }
   }
 
-  ProjectTableData toDb(Project model) {
-    return ProjectTableData.fromJson(model.toJson());
-  }
-
   Project toModel(ProjectTableData data) {
-    return Project.fromJson(data.toJson());
+    return Project(
+      id: data.id,
+      name: data.name,
+      address: data.address,
+      startDate: data.startDate,
+      endDate: data.endDate,
+      status: data.status,
+      responsibleId: data.responsibleId,
+    );
   }
 }

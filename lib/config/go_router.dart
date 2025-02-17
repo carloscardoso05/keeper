@@ -5,6 +5,8 @@ import 'package:keeper/ui/items/item_details.dart';
 import 'package:keeper/ui/items/items_page.dart';
 import 'package:keeper/ui/items/viewmodels/item_detail/item_detail_cubit.dart';
 import 'package:keeper/ui/items/viewmodels/items/items_cubit.dart';
+import 'package:keeper/ui/projects/projects_page.dart';
+import 'package:keeper/ui/projects/viewmodels/projects/projects_cubit.dart';
 import 'package:keeper/ui/users/users_page.dart';
 import 'package:keeper/ui/users/viewmodels/user_detail/user_detail_cubit.dart';
 import 'package:keeper/ui/users/viewmodels/users/users_cubit.dart';
@@ -33,6 +35,10 @@ final GoRouter goRouter = GoRouter(
         final itemData = state.extra as ItemData;
         return ItemDetails(cubit: ItemDetailCubit(itemData));
       },
+    ),
+    GoRoute(
+      path: Routes.projects,
+      builder: (context, state) => ProjectsPage(cubit: ProjectsCubit()),
     ),
   ],
   initialLocation: '/users',

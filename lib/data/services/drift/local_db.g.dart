@@ -1105,6 +1105,9 @@ abstract class _$LocalDb extends GeneratedDatabase {
     itemTable,
     projectTable,
   ];
+  @override
+  DriftDatabaseOptions get options =>
+      const DriftDatabaseOptions(storeDateTimeAsText: true);
 }
 
 typedef $$UserTableTableCreateCompanionBuilder =

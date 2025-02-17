@@ -11,7 +11,7 @@ import 'package:result_dart/result_dart.dart';
 part 'users_state.dart';
 
 class UsersCubit extends Cubit<UsersState> {
-  UsersCubit() : super(const UsersState.initial()) {
+  UsersCubit() : super(const UsersState.loading()) {
     loadUsers();
   }
 

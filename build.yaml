@@ -14,3 +14,4 @@ targets:
       options:
         databases:
           keeper_db: lib\data\services\drift\local_db.dart
+        store_date_time_values_as_text: true
