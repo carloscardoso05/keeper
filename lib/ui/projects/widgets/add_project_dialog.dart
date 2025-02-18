@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:keeper/domain/dtos/project_dto.dart';
 import 'package:keeper/domain/validators/project_dto_validator.dart';
 
@@ -19,6 +20,8 @@ class _AddProjectDialogState extends State<AddProjectDialog> {
 
   final ProjectDtoValidator validator = ProjectDtoValidator();
 
+  final DateFormat dateFormat = DateFormat('dd/MM/yy');
+
   Future<void> selectDate(BuildContext context) async {
     final DateTimeRange? picked = await showDateRangePicker(
       context: context,
@@ -28,7 +31,9 @@ class _AddProjectDialogState extends State<AddProjectDialog> {
 
     if (picked != null) {
       setState(() {
-        widget.dateController.text = picked.start.toString();
+        final start = dateFormat.format(picked.start);
+        final end = dateFormat.format(picked.end);
+        widget.dateController.text = '$start - $end';
         projectDto.startDate = picked.start;
         projectDto.endDate = picked.end;
       });
@@ -65,7 +70,7 @@ class _AddProjectDialogState extends State<AddProjectDialog> {
           TextFormField(
             controller: widget.dateController,
             decoration: const InputDecoration(
-              labelText: 'Data de início',
+              labelText: 'Data de início e término',
               border: OutlineInputBorder(),
               suffixIcon: Icon(Icons.calendar_month),
             ),
