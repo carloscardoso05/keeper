@@ -47,9 +47,9 @@ class ItemDetails extends StatelessWidget {
                               ),
                               const SizedBox(height: 10),
                               Text('Código: ${item.assetCode}'),
-                              if (user != null) Text('Sem responsável'),
-                              if (user == null)
-                                Text('Responsável: ${user!.name}'),
+                              if (user == null) Text('Sem responsável'),
+                              if (user != null)
+                                Text('Responsável: ${user.name}'),
                               Text('Descrição: ${item.description}'),
                               Spacer(),
                               TransferItemButton(item: item, cubit: cubit),

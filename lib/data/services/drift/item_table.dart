@@ -7,3 +7,4 @@ class ItemTable extends Table {
   TextColumn get description => text().withDefault(const Constant(''))();
   IntColumn get holderId => integer().nullable().references(UserTable, #id)();
 }
+  
