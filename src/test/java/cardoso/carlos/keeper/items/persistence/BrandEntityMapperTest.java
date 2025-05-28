@@ -1,10 +1,11 @@
 package cardoso.carlos.keeper.items.persistence;
 
-import cardoso.carlos.keeper.items.Brand;
-import cardoso.carlos.keeper.items.BrandId;
+import cardoso.carlos.keeper.application.brand.Brand;
+import cardoso.carlos.keeper.application.brand.BrandId;
+import cardoso.carlos.keeper.persistence.brand.BrandEntity;
+import cardoso.carlos.keeper.persistence.brand.BrandEntityMapper;
 import org.junit.jupiter.api.Test;
 
-import java.util.UUID;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -26,14 +27,14 @@ class BrandEntityMapperTest {
 
         // Then
         assertNotNull(brandRef);
-        assertEquals(id.value(), brandEntity.getId());
+        assertEquals(id, brandEntity.getId());
         assertEquals(name, brandEntity.getName());
     }
 
     @Test
     void givenBrandEntity_whenToModel_thenReturnBrand() {
         // Given
-        var id = UUID.randomUUID();
+        var id = new BrandId();
         var name = "Test Brand";
         var brandEntity = new BrandEntity() {{
             setId(id);
@@ -47,7 +48,7 @@ class BrandEntityMapperTest {
 
         // Then
         assertNotNull(brandRef);
-        assertEquals(id, brand.id().value());
+        assertEquals(id, brand.id());
         assertEquals(name, brand.name());
     }
 }
