@@ -1,0 +1,59 @@
+@startuml
+
+package "Item Management" as Items {
+    class Item {
+        + id: UUID
+        + assetCode: String
+        + name: String
+        + description: String
+        + brand: Brand
+        + allocation: Allocation?
+    }
+
+    Item "many"  *-- "1" Brand : belongs to >
+    Item "1" *-- "1" Allocation : has >
+
+    class Allocation {
+        + id: UUID
+        + item: Item
+        + bearer: Worker
+        + project: Project
+        + allocatedAt: DateTime
+    }
+
+    Allocation "many" *-- "1" .Users.Worker : allocated to >
+    Allocation "many" *-- "1" Project : for project >
+
+    class Brand {
+        + id: UUID
+        + name: String
+    }
+
+    class Project {
+        + id: UUID
+        + name: String
+        + description: String
+        + startDate: Date
+        + endDate: Date
+        + responsible: Manager
+    }
+
+    Project "many" *-- "1" .Users.Manager : managed by >
+}
+
+package "User Management" as Users {
+    abstract class User {
+        + id: UUID
+        + name: String
+        + email: String
+        + password: String
+    }
+
+    class Worker extends User {
+    }
+
+    class Manager extends User {
+    }
+}
+
+@enduml
