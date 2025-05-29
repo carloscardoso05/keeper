@@ -1,4 +1,4 @@
-package cardoso.carlos.keeper.application.user;
+package cardoso.carlos.keeper.domain;
 
 import cardoso.carlos.keeper.application.valueObjects.CPF;
 import cardoso.carlos.keeper.application.valueObjects.Email;

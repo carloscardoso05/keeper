@@ -1,6 +1,5 @@
 package cardoso.carlos.keeper.persistence.allocation;
 
-import cardoso.carlos.keeper.application.allocation.AllocationId;
 import cardoso.carlos.keeper.persistence.item.ItemEntity;
 import cardoso.carlos.keeper.persistence.project.ProjectEntity;
 import cardoso.carlos.keeper.persistence.user.WorkerEntity;

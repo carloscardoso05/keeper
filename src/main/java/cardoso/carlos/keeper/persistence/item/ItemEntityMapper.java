@@ -1,6 +1,6 @@
 package cardoso.carlos.keeper.persistence.item;
 
-import cardoso.carlos.keeper.application.item.Item;
+import cardoso.carlos.keeper.domain.item.Item;
 import cardoso.carlos.keeper.persistence.allocation.AllocationEntity;
 import cardoso.carlos.keeper.persistence.brand.BrandEntityMapper;
 import org.springframework.stereotype.Component;
@@ -30,7 +30,7 @@ public class ItemEntityMapper {
                 item.assetCode(),
                 item.name(),
                 item.description(),
-                brandEntityMapper.toEntity(item.brand()),
+                brandEntityMapper.toEntity(item.brandId()),
                 allocationEntity
         );
     }

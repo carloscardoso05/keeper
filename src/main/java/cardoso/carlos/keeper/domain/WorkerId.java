@@ -1,15 +1,15 @@
-package cardoso.carlos.keeper.application.user;
+package cardoso.carlos.keeper.domain;
 
 import org.springframework.util.Assert;
 
 import java.util.UUID;
 
-public record ManagerId(UUID value) {
-    public ManagerId() {
+public record WorkerId(UUID value) {
+    public WorkerId() {
         this(UUID.randomUUID());
     }
 
-    public ManagerId {
+    public WorkerId {
         Assert.notNull(value, "Id must not be null");
     }
 }

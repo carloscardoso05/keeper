@@ -1,6 +1,6 @@
 package cardoso.carlos.keeper.persistence.brand;
 
-import cardoso.carlos.keeper.application.brand.BrandId;
+import cardoso.carlos.keeper.domain.brand.BrandId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

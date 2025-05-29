@@ -1,15 +1,15 @@
-package cardoso.carlos.keeper.application.allocation;
+package cardoso.carlos.keeper.domain.brand;
 
 import org.springframework.util.Assert;
 
 import java.util.UUID;
 
-public record AllocationId(UUID value) {
-    public AllocationId() {
+public record BrandId(UUID value) {
+    public BrandId() {
         this(UUID.randomUUID());
     }
 
-    public AllocationId {
+    public BrandId {
         Assert.notNull(value, "Id must not be null");
     }
 }

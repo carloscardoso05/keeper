@@ -1,7 +1,7 @@
 package cardoso.carlos.keeper.items.persistence;
 
-import cardoso.carlos.keeper.application.brand.Brand;
-import cardoso.carlos.keeper.application.brand.BrandId;
+import cardoso.carlos.keeper.domain.brand.Brand;
+import cardoso.carlos.keeper.domain.brand.BrandId;
 import cardoso.carlos.keeper.persistence.brand.BrandEntity;
 import cardoso.carlos.keeper.persistence.brand.BrandEntityMapper;
 import org.junit.jupiter.api.Test;

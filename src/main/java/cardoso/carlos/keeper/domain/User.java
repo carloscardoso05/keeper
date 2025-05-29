@@ -1,13 +1,13 @@
-package cardoso.carlos.keeper.application.user;
+package cardoso.carlos.keeper.domain;
 
 import cardoso.carlos.keeper.application.valueObjects.CPF;
 import cardoso.carlos.keeper.application.valueObjects.Email;
 import org.springframework.util.Assert;
 
 abstract public class User {
-    private final String name;
-    private final CPF cpf;
-    private final Email email;
+    private String name;
+    private CPF cpf;
+    private Email email;
 
     public User(String name, CPF cpf, Email email) {
         Assert.hasText(name, "Name can't be empty or null");
@@ -29,5 +29,10 @@ abstract public class User {
 
     public Email getEmail() {
         return email;
+    }
+
+    public void setEmail(Email email) {
+        Assert.notNull(email, "Email can't be null");
+        this.email = email;
     }
 }

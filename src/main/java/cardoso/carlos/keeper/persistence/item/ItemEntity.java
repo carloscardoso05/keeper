@@ -1,6 +1,6 @@
 package cardoso.carlos.keeper.persistence.item;
 
-import cardoso.carlos.keeper.application.item.ItemId;
+import cardoso.carlos.keeper.domain.item.ItemId;
 import cardoso.carlos.keeper.persistence.allocation.AllocationEntity;
 import cardoso.carlos.keeper.persistence.brand.BrandEntity;
 import jakarta.persistence.*;

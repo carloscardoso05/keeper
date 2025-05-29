@@ -1,6 +1,6 @@
 package cardoso.carlos.keeper.persistence.user;
 
-import cardoso.carlos.keeper.application.user.WorkerId;
+import cardoso.carlos.keeper.domain.WorkerId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
