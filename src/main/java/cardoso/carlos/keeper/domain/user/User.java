@@ -1,7 +1,7 @@
-package cardoso.carlos.keeper.domain;
+package cardoso.carlos.keeper.domain.user;
 
-import cardoso.carlos.keeper.application.valueObjects.CPF;
-import cardoso.carlos.keeper.application.valueObjects.Email;
+import cardoso.carlos.keeper.domain.valueObjects.CPF;
+import cardoso.carlos.keeper.domain.valueObjects.Email;
 import org.springframework.util.Assert;
 
 abstract public class User {

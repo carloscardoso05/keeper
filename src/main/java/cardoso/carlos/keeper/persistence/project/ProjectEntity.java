@@ -1,6 +1,6 @@
 package cardoso.carlos.keeper.persistence.project;
 
-import cardoso.carlos.keeper.domain.ProjectId;
+import cardoso.carlos.keeper.domain.project.ProjectId;
 import jakarta.persistence.*;
 
 @Entity

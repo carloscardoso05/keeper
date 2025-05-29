@@ -1,7 +1,7 @@
 package cardoso.carlos.keeper.domain.item;
 
-import cardoso.carlos.keeper.domain.ProjectId;
-import cardoso.carlos.keeper.domain.WorkerId;
+import cardoso.carlos.keeper.domain.project.ProjectId;
+import cardoso.carlos.keeper.domain.user.WorkerId;
 import jakarta.annotation.Nullable;
 import org.springframework.util.Assert;
 

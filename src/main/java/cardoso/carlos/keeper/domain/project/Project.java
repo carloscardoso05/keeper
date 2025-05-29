@@ -1,9 +1,10 @@
-package cardoso.carlos.keeper.domain;
+package cardoso.carlos.keeper.domain.project;
 
+import cardoso.carlos.keeper.domain.user.ManagerId;
 import org.springframework.util.Assert;
 
 public class Project {
-    private ProjectId id;
+    private final ProjectId id;
     private String name;
     private String description;
     private ManagerId managerId;

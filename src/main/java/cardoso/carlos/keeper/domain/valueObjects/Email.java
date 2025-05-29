@@ -1,4 +1,4 @@
-package cardoso.carlos.keeper.application.valueObjects;
+package cardoso.carlos.keeper.domain.valueObjects;
 
 import org.hibernate.validator.internal.constraintvalidators.hv.EmailValidator;
 import org.springframework.util.Assert;

@@ -1,4 +1,4 @@
-package cardoso.carlos.keeper.domain;
+package cardoso.carlos.keeper.domain.project;
 
 import org.springframework.util.Assert;
 
